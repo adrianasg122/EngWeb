@@ -12,34 +12,39 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+
 </style>
 <body>
 
 <!-- Header -->
-<header class="w3-container w3-light-blue" style="padding:40px 16px">
+<header class="w3-container w3-black" style="padding:20px 16px" >
   <h1 class="w3-margin w3-jumbo">START PAGE</h1>
 </header>
 
 <!-- Navbar -->
+
 <div class="w3-bar">
-  <div class="w3-bar w3-light-blue w3-card w3-left-align">
+  <div class="w3-bar w3-black w3-card w3-theme w3-left-align">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O meu perfil</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Portfólio</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Histórico</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Abrir contrato</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-l1">O meu perfil</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-l1">Portfólio</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-l1">Histórico</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-l1">Abrir contrato</a>
+  	<button class="w3-button w3-black w3-right w3-large w3-hide-large" onclick="w3_open()">&#9776;</button>
   </div>
 </div>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-bar-block w3-light-grey w3-card" style="width:130px">
+
+  <div class="w3-row-padding w3-container w3-sidebar w3-collapse w3-bar-block w3-light-grey w3-card " style="width:150px" id="mySidebar">
+  	<button class="w3-bar-item w3-button w3-hide-large"
+  onclick="w3_close()">Close &times;</button> 
     <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Comm')">Commodities</button>
     <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Acao')">Ações</button>
   </div>
 
-  <div style="margin-left:130px">
+  <div style=" margin:30px 0 0 130px">
     <div id="Comm" class="w3-container" style="display:none">
     	<div class="w3-container">
   		<table class="w3-table w3-striped w3-border">
@@ -78,24 +83,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     	</div>
     </div>
   </div>
-</div>
-
-
-<script>
-function openTab(evt, cityName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" w3-red", ""); 
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
-</script>
 
 
 <!-- Footer -->
@@ -120,6 +107,28 @@ function myFunction() {
     } else { 
         x.className = x.className.replace(" w3-show", "");
     }
+}
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function openTab(evt, name) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("tipo");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" w3-red", ""); 
+  }
+  document.getElementById(name).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
 }
 </script>
 
