@@ -34,53 +34,55 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
-  <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Comm')">Commodities</button>
-  <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Acao')">Ações</button>
+  <div class="w3-bar-block w3-light-grey w3-card" style="width:130px">
+    <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Comm')">Commodities</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Acao')">Ações</button>
+  </div>
+
+  <div style="margin-left:130px">
+    <div id="Comm" class="w3-container" style="display:none">
+    	<div class="w3-container">
+  		<table class="w3-table w3-striped w3-border">
+          	<tr>
+        			<th>Ativo</th>
+        			<th>Variação(%)</th>
+        			<th>P.compra(€)</th>
+                  <th>P.venda(€)</th>
+      		</tr>
+              <tr>
+        			<th>AMZN</th>
+        			<th>0.48</th>
+        			<th>1510.76</th>
+                  <th>1507.86</th>
+      		</tr>
+      	</table>
+    	</div>
+    </div>
+    
+    <div id="Acao" class="w3-container" style="display:none">
+      <div class="w3-container">
+  		  <table class="w3-table w3-striped w3-border">
+          	<tr>
+        			<th>Ativo</th>
+        			<th>Variação(%)</th>
+        			<th>P.compra(€)</th>
+              <th>P.venda(€)</th>
+      		  </tr>
+            <tr>
+        			<th>Ouro</th>
+        			<th>0.48</th>
+        			<th>1510.76</th>
+              <th>1507.86</th>
+      		  </tr>
+        </table>
+    	</div>
+    </div>
+  </div>
 </div>
 
-<div style="margin-left:130px">
-  <div id="Comm" class="w3-container" style="display:none">
-  	<div class="w3-container">
-		<table class="w3-table w3-striped w3-border">
-        	<tr>
-      			<th>Ativo</th>
-      			<th>Variação(%)</th>
-      			<th>P.compra(€)</th>
-                <th>P.venda(€)</th>
-    		</tr>
-            <tr>
-      			<th>AMZN</th>
-      			<th>0.48</th>
-      			<th>1510.76</th>
-                <th>1507.86</th>
-    		</tr>
-    	</table>
-  	</div>
-  </div>
-  
-  <div id="Acao" class="w3-container" style="display:none">
-    <div class="w3-container">
-		<table class="w3-table w3-striped w3-border">
-        	<tr>
-      			<th>Ativo</th>
-      			<th>Variação(%)</th>
-      			<th>P.compra(€)</th>
-                <th>P.venda(€)</th>
-    		</tr>
-            <tr>
-      			<th>Ouro</th>
-      			<th>0.48</th>
-      			<th>1510.76</th>
-                <th>1507.86</th>
-    		</tr>
-    	</table>
-  	</div>
-  </div>
-</div>
 
 <script>
-function openCity(evt, cityName) {
+function openTab(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) {
