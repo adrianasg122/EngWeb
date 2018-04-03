@@ -20,7 +20,7 @@ class Historico extends Component {
      <div class="w3-bar">
       <div class="w3-bar w3-light-blue w3-card w3-left-align">
           <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+          <Link to="/App" class="w3-bar-item w3-button w3-padding-large w3-white">Home</Link>
           <Link to="/Perfil" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O meu perfil</Link>
           <Link to="/Portfolio" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Portfólio</Link>
           <Link to="/Historico" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Histórico</Link>
@@ -31,8 +31,8 @@ class Historico extends Component {
 
 
     <div class="w3-container w3-center  w3-padding-16">
-      <p>   Historico {this.props.i} </p>
-        <Link to="/"><button>Back</button></Link>
+      <p>   HISTORICO {this.props.i} </p>
+        <Link to="/App"><button>Back</button></Link>
       </div>
 
 
