@@ -13,7 +13,8 @@ import Login  from './Login.js';
 ReactDOM.render(
     <Router>
     <div>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/App" component={App} />
         <Route path="/Teste" component={Teste} />
         <Route path="/Perfil" component={Perfil} />
         <Route path="/Portfolio" component={Portfolio} />
