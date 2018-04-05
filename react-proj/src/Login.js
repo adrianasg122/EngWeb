@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './w3.css';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
