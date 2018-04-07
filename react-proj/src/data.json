@@ -1,0 +1,47 @@
+[{
+    "id":"1",
+    "company_name": "Facebook, Inc.",
+    "initials": "FB",
+    "open": 157.73 ,
+    "ask": 157.38,
+    "bid": 157.30,
+    "previous_close": 159.34 , 
+    "market_cap": "456.666B", 
+    "volume": 41644812,
+    "avg_volume": 21993430
+  }, {
+    "id":"2",
+    "company_name": "Alphabet Inc.",
+    "initials": "GOOG",
+    "open": 1020.00 ,
+    "ask": 1007.00,
+    "bid": 1005.10,
+    "previous_close": 1027.81 , 
+    "market_cap": "701.532B", 
+    "volume": 1746430,
+    "avg_volume": 1972286
+  }, {
+    "id":"3",
+    "company_name": "Apple Inc.",
+    "initials": "AAPL",
+    "open": 170.97 ,
+    "ask": 168.49,
+    "bid": 168.48,
+    "previous_close": 172.80 , 
+    "market_cap": "854.362B", 
+    "volume": 35005290,
+    "avg_volume": 38183927
+
+  }, {
+    "id":"4",
+    "company_name": "Amazon.com, Inc.",
+    "initials": "AMZN",
+    "open": 1429.97 ,
+    "ask": 1407.00,
+    "bid": 	1403.10,
+    "previous_close": 1451.75 , 
+    "market_cap": "680.282B", 
+    "volume": 5882257,
+    "avg_volume": 6330075
+
+  }]
