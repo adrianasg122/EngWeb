@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
-function myFunc (e) {
-    console.log("click");
-    }
-
-
-
 class Portfolio extends Component {
 
     constructor(props) {
