@@ -34,3 +34,5 @@ var pStyle2 {
   display: table;
   clear: both;
 }
+
+.tableHover:hover{color:#FFF!important;background-color:#555!important}
