@@ -8,6 +8,7 @@ import Perfil  from './Perfil.js';
 import Portfolio  from './Portfolio.js';
 import Historico  from './Historico.js';
 import Login  from './Login.js';
+import AbrirContrato  from './AbrirContrato.js';
 
 
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/Perfil" component={Perfil} />
         <Route path="/Portfolio" component={Portfolio} />
         <Route path="/Historico" component={Historico} />
+        <Route path="/AbrirContrato" component={AbrirContrato} />
     </div>
     </Router>,
     document.getElementById('root'));
