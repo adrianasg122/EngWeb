@@ -54,7 +54,7 @@ class Login extends Component {
             <input type="password" ref="password"/>
         </div>
         <div class="w3-container w3-center w3-padding-4">
-        <button>Login</button>
+        <Link to="/App"><button>Login</button></Link>
         </div>
     </form>
     </div>
