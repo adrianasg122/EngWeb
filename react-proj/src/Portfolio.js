@@ -25,7 +25,7 @@ class Portfolio extends Component {
         txt+="<tr><th> Ativo </th><th>Preço Compra(€)</th><th>Unidades adquiridas</th><th>Total investido(€)</th><th>Ganho/perda(€)</th><th>Ganho/perda(%)</th></tr>";
       
       for (x in data) {
-          txt += "<tr class=\"tableHover\"><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td><td><form><input type=submit value=\"Fechar\"></form></td></tr>";
+          txt += "<tr class=\"tableHover\"><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td></tr>";
       }
       txt += "</table>"
       window.onload = function() {

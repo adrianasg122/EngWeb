@@ -9,13 +9,15 @@ import Portfolio  from './Portfolio.js';
 import Historico  from './Historico.js';
 import Login  from './Login.js';
 import AbrirContrato  from './AbrirContrato.js';
+import Registo  from './Registo.js';
 
 
 
 ReactDOM.render(
     <Router>
     <div>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Registo} />
+        <Route exact path="/App" component={App} />
         <Route path="/Teste" component={Teste} />
         <Route path="/Perfil" component={Perfil} />
         <Route path="/Portfolio" component={Portfolio} />

@@ -20,15 +20,28 @@ class Historico extends Component {
     xmlhttp.send();
 
     var txt = "", x;
-      txt += "<table class=\"w3-table-all w3-bordered\">"
+      txt += "<table id=\"tableID\"class=\"w3-table-all\" style=\"cursor: pointer;\" >"
         txt+="<tr><th> Ativo </th><th>Total invstido(€)</th><th>Preço Abertura(€)</th><th>Preço Fecho(€)</th><th>Data Abertura</th><th>Data fecho</th><th>Ganho/perda(€)</th><th>Ganho/Perda(%)</th></tr>";
       
       for (x in data) {
-          txt += "<tr><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td></tr>";
+          txt += "<tr class=\"tableHover\"><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td></tr>";
       }
       txt += "</table>"
       window.onload = function() {
         document.getElementById("table").innerHTML = txt;
+        var table = document.getElementById("tableID");
+        var rows = table.getElementsByTagName("tr");
+        for ( var i = 0; i < rows.length; i++) {
+          var currentRow = table.rows[i];
+          var createClickHandler = function(row) {
+            return function() {
+              var cell = row.getElementsByTagName("td")[0];
+              var id = cell.innerHTML;
+              alert("id:" + id);
+            };
+          }
+            currentRow.onclick = createClickHandler(currentRow);
+        }
       }
       
 
