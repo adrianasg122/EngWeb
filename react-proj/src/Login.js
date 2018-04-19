@@ -23,13 +23,16 @@ class Login extends Component {
         this.setState({ password: this.refs.password.value }); 
         console.log("After " + this.state.username) ; 
         console.log("After " +this.state.password) ; 
-        if (this.state.username !== null && this.state.password !== null ){
+        if ( (this.state.username !== undefined && this.state.username !== '') && (this.state.password !== undefined && this.state.username !== '') ){
             console.log("2 submited") ; 
             this.setState({ logged: true }); 
             // duvida aqui !!!!!!
             // browserHistory.push('/Portfolio');
             // React.render(Portfolio);
             window.location.replace("/Perfil");
+        }
+        else {
+            console.log("not") ; 
         }
       }
 
