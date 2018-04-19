@@ -11,8 +11,6 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username:'',
-            password:'',
             logged: false
         }
       }
@@ -30,7 +28,8 @@ class Login extends Component {
             this.setState({ logged: true }); 
             // duvida aqui !!!!!!
             // browserHistory.push('/Portfolio');
-            React.render(Portfolio);
+            // React.render(Portfolio);
+            window.location.replace("/Perfil");
         }
       }
 
@@ -54,7 +53,7 @@ class Login extends Component {
             <input type="password" ref="password"/>
         </div>
         <div class="w3-container w3-center w3-padding-4">
-        <Link to="/App"><button>Login</button></Link>
+            <button>Login</button> 
         </div>
     </form>
     </div>
