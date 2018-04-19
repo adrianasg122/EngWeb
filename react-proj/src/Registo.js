@@ -38,9 +38,13 @@ class Registo extends Component {
                 <p> Confirmar Password </p>
                 <input type="password" ref="password-conf"/>
         </div>
-        <div class="w3-container w3-padding-16 w3-padding-large">
-            <Link to="/App"><button>Voltar</button></Link>
-            <Link to="/App"><button>Confirmar</button></Link>
+        <div class="row w3-padding-16 w3-padding-large">
+            <div class="col-xs-4 col-xs-offset-2">
+                <Link to="/App"><button>Voltar</button></Link>
+            </div>
+            <div class="col-xs-4 ">
+                <Link to="/App"><button>Confirmar</button></Link>
+            </div>
         </div>
     </form>
     </div>
