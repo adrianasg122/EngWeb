@@ -14,14 +14,10 @@ class Perfil extends Component {
     document.getElementById("perfilNavBar").className="w3-white w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white";
     return (
       <div className="Perfil">
+      <h1>O Meu Perfil</h1>
         <div className="row">
-          <div className="col-sm-6">
-            <h1>O Meu Perfil</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12 col-md-5 offset-md-1">
-            <div className="row">
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 w3-border ">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
                 Primeiro Nome:
                 </div>
@@ -29,7 +25,7 @@ class Perfil extends Component {
                 Manuel
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
                 Ultimo Nome:
                 </div>
@@ -37,7 +33,7 @@ class Perfil extends Component {
                 Pereira
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
                 Username:
                 </div>
@@ -45,7 +41,7 @@ class Perfil extends Component {
                 manuel123
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
                 Email:
                 </div>
@@ -62,8 +58,8 @@ class Perfil extends Component {
                 </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-4 offset-md-1 w3-border w3-margin-top">
-            <div className="row">
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-border w3-margin-top">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
                 Saldo:
                 </div>
@@ -71,7 +67,7 @@ class Perfil extends Component {
                 1000€
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
                 Total Investido:
                 </div>
@@ -79,7 +75,7 @@ class Perfil extends Component {
                 2000€
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
                 Total de Ganho/Perda:
                 </div>
