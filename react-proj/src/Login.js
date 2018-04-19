@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
+import { Redirect , browserHistory , StaticRouter } from 'react-router';
+import Portfolio from './Portfolio';
+
 
 
 
@@ -10,54 +12,49 @@ class Login extends Component {
         super(props);
         this.state = {
             username:'',
-            password:''
+            password:'',
+            logged: false
         }
       }
 
+    handleSignIn(e) {
+        e.preventDefault()
+        console.log("Before " + this.state.username) ; 
+        console.log("Before " + this.state.password) ; 
+        this.setState({ username: this.refs.username.value }); 
+        this.setState({ password: this.refs.password.value }); 
+        console.log("After " + this.state.username) ; 
+        console.log("After " +this.state.password) ; 
+        if (this.state.username !== null && this.state.password !== null ){
+            console.log("2 submited") ; 
+            this.setState({ logged: true }); 
+            // duvida aqui !!!!!!
+            // browserHistory.push('/Portfolio');
+            React.render(Portfolio);
+        }
+      }
 
-    validateLogin() {
-        console.log(this.state.username, this.state.pwd) ;
-        if(this.state.username!=='' && this.state.password!=='')
-           return(<Link to="/App" />) ; 
-        else ; 
-    }
+      componentWillMount(){
 
-    handleUsername(usr){
-        this.setState({username: usr});
-      };
+      }
 
-    handlePassword(pwd){
-        this.setState({password: pwd});
-      };
-
-      handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    onSubmit = (e) => {
-        console.log(this.state.username, this.state.pwd) ;
-        return(<Link to="/App" />) ;
-     }
-    
 
   render() {
     return (
 <div className="Login">  
 
     <div class="w3-container w3-center  w3-padding-16">        
-      <form> 
+      <form onSubmit={this.handleSignIn.bind(this)}> 
         <div class="w3-container w3-center w3-padding-16" >
             <p> Username </p>
-            <input type="text" value={this.state.username} onChange={e => this.handleChange(e)}/> 
+            <input type="text" ref="username"/> 
         </div>
         <div class="w3-container w3-center w3-padding-16">
             <p> Password </p>
-            <input type="text"  value={this.state.password} onChange={e => this.handleChange(e)}/>
+            <input type="password" ref="password"/>
         </div>
         <div class="w3-container w3-center w3-padding-4">
-        <button onClick={(e) => this.onSubmit(e)}>Login</button>
+        <Link to="/App"><button>Login</button></Link>
         </div>
     </form>
     </div>
