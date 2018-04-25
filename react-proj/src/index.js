@@ -9,6 +9,7 @@ import Portfolio  from './Portfolio.js';
 import Historico  from './Historico.js';
 import Login  from './Login.js';
 import AbrirContrato  from './AbrirContrato.js';
+import FecharContrato  from './FecharContrato.js';
 import Registo  from './Registo.js';
 
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path="/Portfolio" component={Portfolio} />
         <Route path="/Historico" component={Historico} />
         <Route path="/AbrirContrato" component={AbrirContrato} />
+        <Route path="/FecharContrato" component={FecharContrato} />
     </div>
     </Router>,
     document.getElementById('root'));
