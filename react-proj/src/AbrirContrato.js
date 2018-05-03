@@ -83,20 +83,34 @@ class AbrirContrato extends Component {
             </div>
           </div>
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-margin-top">
-          <div className="row w3-margin-top">
+            <div className="row w3-margin-top">
               <div className="col-xs-6">
               <b>Saldo:</b>
               </div>
               <div className="col-xs-6">
-              1000€
+                1000€
               </div>
             </div>
             <div className="row">
-              <input className="col-xs-5 col-xs-offset-1"></input>
+              <input className="col-xs-6 col-xs-offset-1" />
             </div>
             <div className="row">
-              <input className="col-xs-4 col-xs-offset-1"></input>
-              <input className="col-xs-4 col-xs-offset-2"></input>
+              <form action="">
+                <div className="col-xs-6">
+                  <input type="radio" name="comprarVender" value="comprar"/> Comprar
+              </div>
+                <div className="col-xs-6">
+                  <input type="radio" name="comprarVender" value="vender"/> Vender
+              </div>
+              </form>
+            </div>
+            <div className="row">
+              <div className="col-xs-6">
+                <button type="button">Confirmar</button>
+              </div>
+              <div className="col-xs-6">
+                <button type="button">Voltar</button>
+              </div>
             </div>
           </div>
         </div>
