@@ -44,7 +44,7 @@ class App extends Component {
 
     var txt = "", x;
     txt += "<table id=\"tableID\"class=\"w3-table-all\" style=\"cursor: pointer;\" >"
-    txt += "<tr><th> Ativo </th><th>Total invstido(€)</th><th>Preço Abertura(€)</th><th>Preço Fecho(€)</th><th>Data Abertura</th><th>Data fecho</th><th>Ganho/perda(€)</th><th>Ganho/Perda(%)</th></tr>";
+    txt += "<tr><th> Ativo </th><th>Total investido(€)</th><th>Preço Abertura(€)</th><th>Preço Fecho(€)</th><th>Data Abertura</th><th>Data fecho</th><th>Ganho/perda(€)</th><th>Ganho/Perda(%)</th></tr>";
 
     for (x in data) {
       txt += "<tr class=\"tableHover\"><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td></tr>";
@@ -67,11 +67,11 @@ class App extends Component {
 
         <div className="w3-container col-xs-12 col-md-offset-2 col-md-10">
           <div id="Comm" className="tabcontent w3-container">
-            <h2> Commodities</h2>
+            <h2 id="ComAcao" class="titulos"> Commodities</h2>
             <div className="w3-container table"></div>
           </div>
           <div id="Acao" class="tabcontent w3-container">
-            <h2> Ações</h2>
+            <h2 id="ComAcao" class="titulos"> Ações</h2>
             <div className="w3-container table"></div>
           </div>
         </div>

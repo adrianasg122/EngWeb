@@ -1,18 +1,22 @@
+html * {
+  font: normal 15px/normal "Lucida Console", Monaco, sans-serif;
+}
+
 h1 {
   padding-bottom: 30px;
   text-align: center;
-
 }
 
 var pStyle1 {
   padding: '40px'
-};
+}
 
+;
 var pStyle2 {
   width: 100%
-};
+}
 
-
+;
 .column {
   float: left;
   width: 33.33%;
@@ -31,20 +35,29 @@ var pStyle2 {
 
 .Perfil {
   padding-top: 20px;
-  font-size: 15px;
+  font: normal 15px/normal "Lucida Console", Monaco, sans-serif;
 }
 
 .AbrirContrato {
   padding-top: 20px;
-  font-size: 15px;
+  font: normal 15px/normal "Lucida Console", Monaco, sans-serif;
 }
 
-.tableHover:hover{color:#FFF!important;background-color:#555!important}
+.tableHover:hover {
+  color: #FFF !important;
+  background-color: #555 !important
+}
 
-.sidebar {background-color:#fff;position:fixed!important;z-index:1;overflow:auto;margin-top: 65px;}
+.sidebar {
+  background-color: #fff;
+  position: fixed !important;
+  z-index: 1;
+  overflow: auto;
+  margin-top: 65px;
+}
 
 .tabcontent {
-  display:none;
+  display: none;
   border-left: none;
 }
 
@@ -59,7 +72,7 @@ var pStyle2 {
   text-align: left;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 17px;
+  font: normal 17px/normal "Lucida Console", Monaco, sans-serif;
 }
 
 .tab button:hover {
@@ -70,3 +83,79 @@ var pStyle2 {
   background-color: #B22222;
 }
 
+.image {
+  position: absolute;
+  top: 8px;
+  right: 33px;
+  width: 110px;
+  height: 90px;
+}
+
+img:hover {
+  transition: box-shadow 900ms ease, transform 900ms ease;
+  transform: scale(1.05) translateY(-0.8rem);
+}
+
+.titulos {
+  font: normal 30px/normal "Lucida Console", Monaco, sans-serif;
+  text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
+}
+
+#ComAcao {
+  margin-left: 15px;
+  font: normal 30px/normal "Lucida Console", Monaco, sans-serif;
+}
+
+.botao {
+  width: 100px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #018dc4;
+  border-radius: 0 3px 3px;
+  font: normal 14px/normal "Lucida Console", Monaco, monospace;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #00545c;
+  box-shadow: 0 2px 3px 0 rgba(175, 175, 175, 1);
+  text-shadow: -1px -1px 0 rgba(15, 73, 168, 0.66);
+}
+
+.botao:hover {
+  background: #166f77;
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.botao:active {
+  background: rgb(253, 50, 50);
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  transition: box-shadow 10ms ease, transform 1ms ease;
+}
+
+.input {
+  width: 300px;
+  height: 35px;
+  padding: 10px 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 3px;
+  font: normal 16px/normal "Lucida Console", Monaco, monospace;
+  color: #00626b;
+  background: rgba(224, 224, 224, 1);
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+}
+
+.input:hover {
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+}
+
+.input:focus {
+  outline: none !important;
+  border: 1px solid #8e8f8f;
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+}
+
+.input_desc {
+  font: normal 16px/normal "Lucida Console", Monaco, sans-serif;
+}

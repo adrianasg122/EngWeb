@@ -33,19 +33,21 @@
   <script>
     function myFunction() {
       if (document.getElementById("navBarOff") != null) {
-        document.getElementById("navBarOff").innerHTML = document.getElementById("navBarOff").innerHTML + '<a id="homeNavBar" href="/" ="/" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Home</a><a id="perfilNavBar" href="/Perfil" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">O meu perfil</a><a id="portfolioNavBar" href="/Portfolio" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Portfólio</a><a id="historicoNavBar" href="/Historico" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Histórico</a><a id="loginNavBar" href="/" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Login</a><a id="registarNavBar" href="/Registo" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Registar</a>';
+        document.getElementById("navBarOff").innerHTML = document.getElementById("navBarOff").innerHTML +
+          '<a id="homeNavBar" href="/" ="/" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Home</a><a id="perfilNavBar" href="/Perfil" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">O meu perfil</a><a id="portfolioNavBar" href="/Portfolio" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Portfólio</a><a id="historicoNavBar" href="/Historico" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Histórico</a><a id="loginNavBar" href="/" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Login</a><a id="registarNavBar" href="/Registo" style="display:block;" class="w3-button w3-hide-medium w3-hide-large w3-padding-large w3-hover-white">Registar</a>';
         document.getElementById("navBarOff").id = "navBarOn"
-      }
-      else {
-        document.getElementById("navBarOn").innerHTML = '<div class="row"><div class="col-sm-12"><a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href = "javascript:void(0);" onclick = "myFunction()" title = "Toggle Navigation Menu" > <i class="fa fa-bars"></i></a></div></div><a id="homeNavBar" href="/" ="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" > Home</a><a id="perfilNavBar" href="/Perfil" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O meu perfil</a><a id="portfolioNavBar" href="/Portfolio" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Portfólio</a><a id="historicoNavBar" href="/Historico" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Histórico</a><a id="registarNavBar" href="/Registo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right">Registar</a><a id="loginNavBar" href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right">Login</a>'
+      } else {
+        document.getElementById("navBarOn").innerHTML =
+          '<div class="row"><div class="col-sm-12"><a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href = "javascript:void(0);" onclick = "myFunction()" title = "Toggle Navigation Menu" > <i class="fa fa-bars"></i></a></div></div><a id="homeNavBar" href="/" ="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" > Home</a><a id="perfilNavBar" href="/Perfil" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O meu perfil</a><a id="portfolioNavBar" href="/Portfolio" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Portfólio</a><a id="historicoNavBar" href="/Historico" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Histórico</a><a id="registarNavBar" href="/Registo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right">Registar</a><a id="loginNavBar" href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right">Login</a>'
         document.getElementById("navBarOn").id = "navBarOff"
       }
     }
   </script>
   <title>React App</title>
 </head>
-<header class="w3-container w3-blue-grey">
+<header class="w3-container w3-theme-d1">
   <h2 class="w3-margin w3-jumbo">ESS-TradingPlat</h2>
+  <img class="image" src="/images/nota.png">
 </header>
 <!-- Navbar -->
 
@@ -54,7 +56,7 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div class="w3-bar">
-    <div id="navBarOff" class="w3-bar w3-blue-grey w3-card">
+    <div id="navBarOff" class="w3-bar w3-theme-d3 w3-card">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);"
         onclick="myFunction()" title="Toggle Navigation Menu">
         <i class="fa fa-bars"></i>
