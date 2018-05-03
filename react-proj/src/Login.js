@@ -11,6 +11,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username:'',
+            password:'',
             logged: false
         }
       }
@@ -29,7 +31,7 @@ class Login extends Component {
             // duvida aqui !!!!!!
             // browserHistory.push('/Portfolio');
             // React.render(Portfolio);
-            window.location.replace("/Perfil");
+            window.location.replace("/App");
         }
         else {
             console.log("not") ; 

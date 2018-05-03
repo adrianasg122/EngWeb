@@ -11,18 +11,41 @@ class Registo extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name:'',
+            username:'',
+            password:''
         }
       }
 
-
+      handleSignIn(e) {
+        e.preventDefault()
+        console.log("Before " + this.state.username) ; 
+        console.log("Before " + this.state.password) ; 
+        this.setState({ nome: this.refs.nome.value }); 
+        this.setState({ username: this.refs.username.value }); 
+        this.setState({ password: this.refs.password.value }); 
+        console.log("After " + this.state.username) ; 
+        console.log("After " +this.state.password) ; 
+        if ( (this.state.username !== '' && this.state.username !== '' && this.state.password !== '') && this.state.password===this.refs.passwordC.value){
+            console.log("ok") ; 
+            this.setState({ logged: true }); 
+            // duvida aqui !!!!!!
+            // browserHistory.push('/Portfolio');
+            // React.render(Portfolio);
+            window.location.replace("/App");
+        }
+        else {
+            console.log("not ok") ; 
+        }
+      }
       
 
 
   render() {
     return (
 <div className="Registo">  
-    <div class="w3-container w3-center  w3-padding-8">        
-      <form> 
+    <div class="w3-container w3-center  w3-margin-top">        
+      <form onSubmit={this.handleSignIn.bind(this)}> 
         <div class="w3-container w3-center w3-padding-8" >
             <p> Nome Completo </p>
             <input type="text" ref="nome"/> 
@@ -35,14 +58,14 @@ class Registo extends Component {
                 <p> Password </p>
                 <input type="password" ref="password"/>
                 <p> Confirmar Password </p>
-                <input type="password" ref="password-conf"/>
+                <input type="password" ref="passwordC"/>
         </div>
         <div class="row w3-center w3-padding-16 w3-padding-large">
             <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                 <Link to="/App"><button>Voltar</button></Link>
             </div>
             <div class="col-md-1 col-xs-2">
-                <Link to="/App"><button>Confirmar</button></Link>
+                <button>Confirmar</button>
             </div>
         </div>
     </form>
