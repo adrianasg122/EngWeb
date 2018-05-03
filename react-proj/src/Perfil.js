@@ -83,13 +83,19 @@ class Perfil extends Component {
                 +134.5€
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
                 <b>Equitity:</b>
                 </div>
               <div className="col-sm-6 col-md-4">
                 3134.5€
                 </div>
+            </div>
+            <div className="row ">
+              <div className="col-sm-6 col-md-8">
+                <b>Adicionar:</b>
+                </div>              
+                <input type="money" ref="money"/>
             </div>
           </div>
         </div>
