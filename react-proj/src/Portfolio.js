@@ -45,6 +45,7 @@ class Portfolio extends Component {
         }  
       }
 
+    document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");
     return (
       <div className="Portfolio">  
         <div className="w3-container w3-padding-16">

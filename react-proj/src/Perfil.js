@@ -11,7 +11,7 @@ class Perfil extends Component {
   }
 
   render() {
-    document.getElementById("perfilNavBar").className="w3-white w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white";
+    document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
     return (
       <div className="Perfil">
       <h1>O Meu Perfil</h1>

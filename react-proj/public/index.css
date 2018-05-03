@@ -41,19 +41,11 @@ var pStyle2 {
 
 .tableHover:hover{color:#FFF!important;background-color:#555!important}
 
-.sidebar {
-  padding: 40px 10px;
-  width: 17%;
-  font-size: 20px;
-}
+.sidebar {background-color:#fff;position:fixed!important;z-index:1;overflow:auto;margin-top: 65px;}
 
 .tabcontent {
   display:none;
-  float: left;
-  padding: 40px 300px;
-  width: 70%;
   border-left: none;
-  height: 200px;
 }
 
 .tab button {
