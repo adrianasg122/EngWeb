@@ -28,6 +28,7 @@ class App extends Component {
         break;
       case "Acao":
         document.getElementById("bAcao").className += " w3-red";
+        break;
     }
   }
 
@@ -59,9 +60,9 @@ class App extends Component {
            
     return (
       <div className="App w3-container row">  
-        <div className="w3-row-padding w3-container w3-sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-sm-2 sidebar" id="mySidebar">
-          <button className="w3-bar-item w3-button w3-red tablink" id="bComm" onClick={this.openTab.bind(this,'Comm')}>Commodities</button>
-          <button className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this, 'Acao')}>Ações</button>
+        <div id="mySidebar" className="w3-row-padding w3-container w3-sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-sm-2 sidebar">
+          <a className="w3-bar-item w3-button w3-red tablink" id="bComm" onClick={this.openTab.bind(this,'Comm')}>Commodities</a>
+          <a className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this,'Acao')}>Ações</a>
         </div>
 
       <div className="w3-container row">
