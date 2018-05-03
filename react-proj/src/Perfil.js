@@ -16,10 +16,10 @@ class Perfil extends Component {
       <div className="Perfil">
       <h1>O Meu Perfil</h1>
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 w3-border ">
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1  ">
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
-                Primeiro Nome:
+                <b>Primeiro Nome:</b>
                 </div>
               <div className="col-sm-6 col-md-6">
                 Manuel
@@ -27,7 +27,7 @@ class Perfil extends Component {
             </div>
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
-                Ultimo Nome:
+                <b>Ultimo Nome:</b>
                 </div>
               <div className="col-sm-6 col-md-6">
                 Pereira
@@ -35,7 +35,7 @@ class Perfil extends Component {
             </div>
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
-                Username:
+                <b>Username:</b>
                 </div>
               <div className="col-sm-6 col-md-6">
                 manuel123
@@ -43,7 +43,7 @@ class Perfil extends Component {
             </div>
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-6">
-                Email:
+                <b>Email:</b>
                 </div>
               <div className="col-sm-6 col-md-6">
                 manuel123@mail.com
@@ -51,17 +51,17 @@ class Perfil extends Component {
             </div>
             <div className="row">
               <div className="col-sm-6 col-md-6">
-                Telemóvel:
+                <b>Telemóvel:</b>
                 </div>
               <div className="col-sm-6 col-md-6">
                 +351 909 090 901
                 </div>
             </div>
           </div>
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-border w3-margin-top">
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-margin-top">
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
-                Saldo:
+                <b>Saldo:</b>
                 </div>
               <div className="col-sm-6 col-md-4">
                 1000€
@@ -69,7 +69,7 @@ class Perfil extends Component {
             </div>
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
-                Total Investido:
+                <b>Total Investido:</b>
                 </div>
               <div className="col-sm-6 col-md-4">
                 2000€
@@ -77,7 +77,7 @@ class Perfil extends Component {
             </div>
             <div className="row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
-                Total de Ganho/Perda:
+                <b>Total de Ganho/Perda:</b>
                 </div>
               <div className="col-sm-6 col-md-4">
                 +134.5€
@@ -85,7 +85,7 @@ class Perfil extends Component {
             </div>
             <div className="row">
               <div className="col-sm-6 col-md-8">
-                Equitity:
+                <b>Equitity:</b>
                 </div>
               <div className="col-sm-6 col-md-4">
                 3134.5€
