@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect , browserHistory , StaticRouter } from 'react-router';
 import Portfolio from './Portfolio';
+import Registo  from './Registo.js';
 
 
 
@@ -55,8 +56,13 @@ class Login extends Component {
             <p> Password </p>
             <input type="password" ref="password"/>
         </div>
-        <div class="w3-container w3-center w3-padding-4">
-            <button>Login</button> 
+        <div class="row w3-center w3-padding-16 w3-padding-large">
+            <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">                
+                <Link to="/Registo"><button>Registar</button></Link>
+            </div>
+            <div class="col-md-1 col-xs-2">
+                <button>Login</button> 
+            </div>
         </div>
     </form>
     </div>
@@ -65,6 +71,9 @@ class Login extends Component {
     );
   }
 }
+
+
+
 
 
 export default Login;
