@@ -21,7 +21,6 @@ class Registo extends Component {
   render() {
     return (
 <div className="Registo">  
-
     <div class="w3-container w3-center  w3-padding-8">        
       <form> 
         <div class="w3-container w3-center w3-padding-8" >
@@ -38,11 +37,11 @@ class Registo extends Component {
                 <p> Confirmar Password </p>
                 <input type="password" ref="password-conf"/>
         </div>
-        <div class="row w3-padding-16 w3-padding-large">
-            <div class="col-xs-4 col-xs-offset-2">
+        <div class="row w3-center w3-padding-16 w3-padding-large">
+            <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                 <Link to="/App"><button>Voltar</button></Link>
             </div>
-            <div class="col-xs-4 ">
+            <div class="col-md-1 col-xs-2">
                 <Link to="/App"><button>Confirmar</button></Link>
             </div>
         </div>

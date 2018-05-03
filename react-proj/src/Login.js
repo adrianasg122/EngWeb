@@ -11,8 +11,6 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username:'',
-            password:'',
             logged: false
         }
       }
@@ -25,12 +23,16 @@ class Login extends Component {
         this.setState({ password: this.refs.password.value }); 
         console.log("After " + this.state.username) ; 
         console.log("After " +this.state.password) ; 
-        if (this.state.username !== null && this.state.password !== null ){
+        if ( (this.state.username !== undefined && this.state.username !== '') && (this.state.password !== undefined && this.state.username !== '') ){
             console.log("2 submited") ; 
             this.setState({ logged: true }); 
             // duvida aqui !!!!!!
             // browserHistory.push('/Portfolio');
-            React.render(Portfolio);
+            // React.render(Portfolio);
+            window.location.replace("/Perfil");
+        }
+        else {
+            console.log("not") ; 
         }
       }
 
@@ -54,7 +56,7 @@ class Login extends Component {
             <input type="password" ref="password"/>
         </div>
         <div class="w3-container w3-center w3-padding-4">
-        <Link to="/App"><button>Login</button></Link>
+            <button>Login</button> 
         </div>
     </form>
     </div>
