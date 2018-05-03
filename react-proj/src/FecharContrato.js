@@ -11,12 +11,73 @@ class FecharContrato extends Component {
   }
 
   render() {
-    document.getElementById("abrirContratoNavBar").className = "w3-white w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white";
     return (
-      <div className="AbrirContrato">
-        <h1>Facebook, Inc.</h1>
+      <div className="FecharContrato">
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 w3-border ">
+        <div className="col-xs-12 col-md-6">
+        <h1>Facebook, Inc.</h1>
+          <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 w3-border ">
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+                Sigla:
+                </div>
+              <div className="col-xs-6 col-md-6">
+                FB
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+                Empresa:
+                </div>
+              <div className="col-xs-6 col-md-6">
+                Facebook, Inc
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+                Tipo:
+                </div>
+              <div className="col-xs-6 col-md-6">
+              Buy
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+              Valor:
+                </div>
+              <div className="col-xs-6 col-md-6">
+                164.75
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+              Investido:
+                </div>
+              <div className="col-xs-6 col-md-6">
+              900€
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+              Data:
+              </div>
+              <div className="col-xs-6 col-md-6">
+              12-12-2017
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-6 col-md-6">
+              Lucro:
+                </div>
+              <div className="col-xs-6 col-md-6">
+              -120€
+                </div>
+            </div>
+          </div>
+          </div>
+          <div className="col-xs-12 col-md-6">
+        <h1>Facebook, Inc.</h1>
+          <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 w3-border ">
             <div className="row">
               <div className="col-xs-6 col-md-6">
                 Sigla:
@@ -82,23 +143,15 @@ class FecharContrato extends Component {
                 </div>
             </div>
           </div>
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-margin-top">
-          <div className="row w3-margin-top">
-              <div className="col-xs-6">
-              Saldo:
-              </div>
-              <div className="col-xs-6">
-              1000€
-              </div>
-            </div>
-            <div className="row">
-              <input className="col-xs-5 col-xs-offset-1"></input>
-            </div>
-            <div className="row">
-              <input className="col-xs-4 col-xs-offset-1"></input>
-              <input className="col-xs-4 col-xs-offset-2"></input>
-            </div>
           </div>
+            <div className="row col-xs-offset-1">
+              <div className="col-xs-2">
+                <button type="button">Fechar Contrato</button>
+              </div>
+              <div className="col-xs-2 col-xs-offset-1">
+                <button type="button">Voltar</button>
+              </div>
+            </div>
         </div>
       </div>
     );
