@@ -12,7 +12,6 @@ var pStyle2 {
   width: 100%
 };
 
-
 .column {
   float: left;
   width: 33.33%;
@@ -27,6 +26,27 @@ var pStyle2 {
   content: "";
   display: table;
   clear: both;
+}
+
+.title {
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.euro {
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+
+.paypal{
+  padding-left: 20px;
+  font-size: 40px;
+}
+
+.Bar{
+  font-size: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .Perfil {
