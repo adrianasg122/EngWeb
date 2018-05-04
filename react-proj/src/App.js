@@ -68,11 +68,11 @@ class App extends Component {
         <div className="w3-container col-xs-12 col-md-offset-2 col-md-10">
           <div id="Comm" className="tabcontent w3-container">
             <h2> Commodities</h2>
-            <div className="w3-container table"></div>
+            <div className="w3-container table w3-padding-32"></div>
           </div>
           <div id="Acao" class="tabcontent w3-container">
             <h2> Ações</h2>
-            <div className="w3-container table"></div>
+            <div className="w3-container table w3-padding-32"></div>
           </div>
         </div>
       </div>
