@@ -1,7 +1,6 @@
 html * {
-  font: normal 15px/normal "Lucida Console", Monaco, sans-serif;
+  font-family: "Verdana", sans-serif;
 }
-
 h1 {
   padding-bottom: 30px;
   text-align: center;
@@ -63,26 +62,24 @@ var pStyle2 {
 
 
 .Bar{
-  font-size: 15px;
+  font-size: 14px;
   padding-left: 50px;
   padding-right: 50px;
 }
 
 .Perfil {
   padding-top: 20px;
-  font: normal 15px/normal "Lucida Console",Monaco,sans-serif
+  font-size: 13px;
 }
 
 .AbrirContrato {
   padding-top: 20px;
-  font: normal 15px/normal "Lucida Console",Monaco,sans-serif;
 }
 
 .tableHover:hover{color:#FFF!important;background-color:#555!important}
 
 .sidebar {
   background-color:#fff;
-  position:fixed!important;
   z-index:1;
   overflow:auto;
   margin-top: 40px;
@@ -91,8 +88,6 @@ var pStyle2 {
 .tabcontent {
   display:none;
   border-left: none;
-  padding-top: 30px;
-
 }
 
 .tab button {
@@ -106,8 +101,7 @@ var pStyle2 {
   text-align: left;
   cursor: pointer;
   transition: 0.3s;
-  font: normal 17px/normal "Lucida Console",Monaco,sans-serif;
-}
+ }
 
 .tab button:hover {
   background-color: #ddd;
@@ -119,7 +113,6 @@ var pStyle2 {
 
 
 .titulo {
-  font: normal 30px/normal "Lucida Console", Monaco, sans-serif;
   text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
 }
 
@@ -130,12 +123,10 @@ var pStyle2 {
 
 
 .botao {
-  width: 100px;
   padding: 5px 10px;
   outline: none;
   border: 1px solid #018dc4;
-  border-radius: 0 3px 3px;
-  font: normal 14px/normal "Lucida Console", Monaco, monospace;
+  border-radius: 3px 3px 3px;
   color: rgba(255, 255, 255, 0.9);
   background-color: #2C3E50;
   box-shadow: 0 2px 3px 0 rgba(175, 175, 175, 1);
@@ -164,7 +155,6 @@ var pStyle2 {
   padding: 10px 20px;
   border: 1px solid #b7b7b7;
   border-radius: 3px;
-  font: normal 16px/normal "Lucida Console", Monaco, monospace;
   color: rgb(26, 44, 63);
   background: rgba(224, 224, 224, 1);
   box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
@@ -182,6 +172,5 @@ var pStyle2 {
 }
 
 .input_desc {
-  font: normal 16px/normal "Lucida Console", Monaco, sans-serif;
   text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
 }

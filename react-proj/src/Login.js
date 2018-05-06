@@ -49,19 +49,19 @@ class Login extends Component {
                 <div className="w3-container w3-padding-16">
                     <form onSubmit={this.handleSignIn.bind(this)}>
                         <div className="w3-container w3-center w3-padding-32" >
-                        <p class="input_desc"> Username </p>
-                            <input class="input" type="text" ref="username" />
+                        <p className="input_desc"> Username </p>
+                            <input className="input" type="text" ref="username" />
                         </div>
                         <div className="w3-container w3-center ">
-                        <p class="input_desc"> Password </p>
+                        <p className="input_desc"> Password </p>
                             <input class="input" type="password" ref="password" />
                         </div>
-                        <div className="row w3-center w3-padding-16 w3-padding-large">
+                        <div className="row w3-padding-32 w3-padding-large">
                             <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
-                                <Link to="/Registo"><button class="botao">Registar</button></Link>
+                                <a className="botao " href="/Registo">Registar</a>
                             </div>
                             <div className="col-md-1 col-xs-2">
-                                <Link to="/App"><button class="botao">Entrar</button></Link>
+                                <a className="botao " href="/">Entrar</a>
                             </div>
                         </div>
                     </form>

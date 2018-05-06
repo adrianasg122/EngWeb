@@ -37,12 +37,12 @@ class Registo extends Component {
                                 <input class="input"type="password" ref="password-conf" />
                             </div>
                         </div>
-                        <div class="row w3-center w3-padding-16 w3-padding-large">
+                        <div class="row w3-center w3-padding-32 w3-padding-large">
                             <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
-                                <Link to="/App"><button class="botao">Voltar</button></Link>
+                               <a className="botao" href="/">Voltar</a>
                             </div>
                             <div class="col-md-1 col-xs-2">
-                                <Link to="/App"><button class="botao">Confirmar</button></Link>
+                            <a className="botao" href="/">Registar</a>
                             </div>
                         </div>
                     </form>

@@ -60,7 +60,7 @@ class App extends Component {
     document.getElementById("homeNavBar").className = document.getElementById("homeNavBar").className.concat(" w3-white");
     return (
       <div className="App w3-container row">
-        <div id="mySidebar" className="w3-row-padding w3-container sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-xs-2">
+        <div id="mySidebar" className="w3-container sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-xs-2">
           <a className="w3-bar-item w3-button w3-red tablink " id="bComm" onClick={this.openTab.bind(this, 'Comm')}>Commodities</a>
           <a className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this, 'Acao')}>Ações</a>
         </div>
