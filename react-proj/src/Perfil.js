@@ -60,7 +60,7 @@ class Perfil extends Component {
             <div className="perfil row ">
               <div className="col-sm-6 col-md-8 w3-padding-32">
                 <b>Carregar a conta: </b>
-                <i className="paypal fa fa-paypal w3-button"></i>
+                <i className="paypal fa fa-paypal w3-button w3-hover-white"></i>
               </div>
             </div>
           </div>

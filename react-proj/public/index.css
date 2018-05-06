@@ -36,16 +36,9 @@ var pStyle2 {
   padding-top: 15px;
 }
 
-.euro {
-  padding-right: 30px;
-  padding-bottom: 10px;
-}
-
-.euro:hover {
-  transition: box-shadow 900ms ease,
-  transform 900ms ease;
-  transform: scale(1.05) translateY(-0.8rem);
-  text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgb(26, 44, 63, .4) 0 -4px 30px;
+.fundo {
+  padding-bottom: 0.5cm;
+  padding-top: 0.5cm;
 }
 
 .paypal{
@@ -111,6 +104,9 @@ var pStyle2 {
   background-color: #B22222;
 }
 
+.fundo{
+  padding-right: 40px;
+}
 
 .titulo {
   text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
