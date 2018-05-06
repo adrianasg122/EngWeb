@@ -36,7 +36,7 @@ class Historico extends Component {
     return (
     <div className="Historico">  
       <div class="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
-        <h1> Histórico </h1>
+        <h1 class="titulo"> Histórico </h1>
         <div id="table"></div>
       </div>
     </div>

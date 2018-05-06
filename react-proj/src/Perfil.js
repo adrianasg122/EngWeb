@@ -14,7 +14,7 @@ class Perfil extends Component {
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
     return (
       <div className="Perfil">
-        <h1>O Meu Perfil</h1>
+        <h1 class="titulo">O Meu Perfil</h1>
         <div className="row">
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1  ">
             <div className="perfil row w3-border-bottom">
@@ -60,7 +60,7 @@ class Perfil extends Component {
             <div className="perfil row ">
               <div className="col-sm-6 col-md-8 w3-padding-32">
                 <b>Carregar a conta: </b>
-                <i className="paypal fa fa-paypal w3-button "></i>
+                <i className="paypal fa fa-paypal w3-button"></i>
               </div>
             </div>
           </div>

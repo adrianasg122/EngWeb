@@ -15,7 +15,7 @@ class FecharContrato extends Component {
       <div className="FecharContrato">
         <div className="row">
         <div className="col-xs-12 col-md-6">
-        <h1>Contrato #123</h1>
+          <h1 class="titulo">Contrato #123</h1>
           <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 w3-border ">
             <div className="row">
               <div className="col-xs-6 col-md-6">

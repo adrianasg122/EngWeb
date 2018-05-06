@@ -20,29 +20,29 @@ class Registo extends Component {
                 <div class="w3-container w3-center w3-padding-16">
                     <form>
                         <div class="w3-container w3-center w3-padding-16" >
-                            <p> Nome Completo </p>
-                            <input type="text" ref="nome" />
+                            <p class="input_desc"> Nome Completo </p>
+                            <input class="input" type="text" ref="nome" />
                         </div>
                         <div class="w3-container w3-center" >
-                            <p> Username </p>
-                            <input type="text" ref="username" />
+                            <p class="input_desc"> Username </p>
+                            <input class="input" type="text" ref="username" />
                         </div>
                         <div class="w3-container w3-center">
                             <div class="w3-padding-16">
-                                <p> Password </p>
-                                <input type="password" ref="password" />
+                                <p class="input_desc"> Password </p>
+                                <input class="input" type="password" ref="password" />
                             </div>
                             <div>
-                                <p> Confirmar Password </p>
-                                <input type="password" ref="password-conf" />
+                                <p class="input_desc"> Confirmar Password </p>
+                                <input class="input"type="password" ref="password-conf" />
                             </div>
                         </div>
                         <div class="row w3-center w3-padding-16 w3-padding-large">
                             <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
-                                <Link to="/App"><button>Voltar</button></Link>
+                                <Link to="/App"><button class="botao">Voltar</button></Link>
                             </div>
                             <div class="col-md-1 col-xs-2">
-                                <Link to="/App"><button>Confirmar</button></Link>
+                                <Link to="/App"><button class="botao">Confirmar</button></Link>
                             </div>
                         </div>
                     </form>
