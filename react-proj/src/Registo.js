@@ -21,7 +21,7 @@ class Registo extends Component {
         e.preventDefault()
         console.log("Before " + this.state.username) ; 
         console.log("Before " + this.state.password) ; 
-        this.setState({ nome: this.refs.nome.value }); 
+        this.setState({ nome: this.refs.pnome.value }); 
         this.setState({ username: this.refs.username.value }); 
         this.setState({ password: this.refs.password.value }); 
         console.log("After " + this.state.username) ; 
@@ -47,12 +47,24 @@ class Registo extends Component {
     <div class="w3-container w3-center  w3-margin-top">        
       <form onSubmit={this.handleSignIn.bind(this)}> 
         <div class="w3-container w3-center w3-padding-8" >
-            <p> Nome Completo </p>
-            <input type="text" ref="nome"/> 
+            <p> Primeiro Nome </p>
+            <input type="text" ref="pnome"/> 
+        </div>
+        <div class="w3-container w3-center w3-padding-8" >
+            <p> Último Nome </p>
+            <input type="text" ref="unome"/> 
         </div>
         <div class="w3-container w3-center w3-padding-8" >
             <p> Username </p>
             <input type="text" ref="username"/> 
+        </div>
+        <div class="w3-container w3-center w3-padding-8" >
+            <p> Contacto </p>
+            <input type="text" ref="contacto"/> 
+        </div>
+        <div class="w3-container w3-center w3-padding-8" >
+            <p> Plafond Inicial </p>
+            <input type="text" ref="plafond"/> 
         </div>
         <div class="w3-container w3-center w3-padding-8">
                 <p> Password </p>
