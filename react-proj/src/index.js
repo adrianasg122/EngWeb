@@ -17,6 +17,8 @@ import Registo  from './Registo.js';
 ReactDOM.render(
     <Router>
     <div>
+
+
         <Route exact path="/Login" component={Login} />
         <Route exact path="/" component={App} />
         <Route exact path="/Registo" component={Registo} />
