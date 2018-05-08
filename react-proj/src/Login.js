@@ -60,7 +60,7 @@ class Login extends Component {
                         </div>
                         <div className="row w3-padding-32 w3-padding-large">
                             <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
-                                <a className="botao " href="/Registo">Registar</a>
+                                <a className="botao" href="/Registo">Registar</a>
                             </div>
                             <div className="col-md-1 col-xs-2">
                                 <a className="botao " href="/">Entrar</a>
