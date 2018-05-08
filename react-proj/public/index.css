@@ -1,3 +1,6 @@
+html * {
+  font-family: "Verdana", sans-serif;
+}
 h1 {
   padding-bottom: 30px;
   text-align: center;
@@ -12,14 +15,13 @@ var pStyle2 {
   width: 100%
 };
 
-
 .column {
   float: left;
   width: 33.33%;
   padding: 15px;
 }
 
-.row {
+.perfil {
   padding-top: 10px;
 }
 
@@ -29,19 +31,52 @@ var pStyle2 {
   clear: both;
 }
 
+.title {
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.fundo {
+  padding-bottom: 0.5cm;
+  padding-top: 0.5cm;
+}
+
+.paypal{
+  padding-left: 20px;
+  font-size: 40px;
+}
+
+.paypal:active{
+  transition: box-shadow 900ms ease,
+  transform 200ms ease;
+  transform: scale(1.05) translateY(-0.8rem);
+  
+}
+
+
+.Bar{
+  font-size: 14px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .Perfil {
   padding-top: 20px;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .AbrirContrato {
   padding-top: 20px;
-  font-size: 15px;
 }
 
 .tableHover:hover{color:#FFF!important;background-color:#555!important}
 
-.sidebar {background-color:#fff;position:fixed!important;z-index:1;overflow:auto;margin-top: 65px;}
+.sidebar {
+  background-color:#fff;
+  z-index:1;
+  overflow:auto;
+  margin-top: 40px;
+}
 
 .tabcontent {
   display:none;
@@ -59,8 +94,7 @@ var pStyle2 {
   text-align: left;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 17px;
-}
+ }
 
 .tab button:hover {
   background-color: #ddd;
@@ -70,3 +104,69 @@ var pStyle2 {
   background-color: #B22222;
 }
 
+.fundo{
+  padding-right: 40px;
+}
+
+.titulo {
+  text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
+}
+
+#ComAcao {
+  margin-left: 15px;
+  font: normal 30px/normal "Lucida Console", Monaco, sans-serif;
+}
+
+
+.botao {
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #018dc4;
+  border-radius: 3px 3px 3px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #2C3E50;
+  box-shadow: 0 2px 3px 0 rgba(175, 175, 175, 1);
+  text-shadow: -1px -1px 0 rgba(15, 73, 168, 0.66);
+}
+
+.botao:hover {
+  background: rgb(76, 107, 138);
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.botao:active {
+  background: rgb(206, 43, 43);
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  transition: box-shadow 900ms ease,
+  transform 200ms ease;
+  transform: scale(1.05) translateY(-0.4rem);
+}
+
+.input {
+  width: 300px;
+  height: 35px;
+  padding: 10px 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 3px;
+  color: rgb(26, 44, 63);
+  background: rgba(224, 224, 224, 1);
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+}
+
+.input:hover {
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+}
+
+.input:focus {
+  outline: none !important;
+  border: 1px solid #8e8f8f;
+  box-shadow: 1px 1px 3px 2px rgb(169, 170, 170);
+}
+
+.input_desc {
+  text-shadow: rgba(0, 0, 0, .2) 1px 4px 5px, rgba(255, 255, 255, .4) 0 -4px 30px;
+}
