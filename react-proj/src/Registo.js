@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect , browserHistory , StaticRouter } from 'react-router';
+import { Redirect, browserHistory, StaticRouter } from 'react-router';
 import Portfolio from './Portfolio';
 
 
@@ -15,6 +15,7 @@ class Registo extends Component {
             username:'',
             password:''
         }
+
       }
 
       handleSignIn(e) {
@@ -78,14 +79,10 @@ class Registo extends Component {
             </div>
             <div class="col-md-1 col-xs-2">
                 <button>Confirmar</button>
+
             </div>
-        </div>
-    </form>
-    </div>
-      
-</div>
-    );
-  }
+        );
+    }
 }
 
 

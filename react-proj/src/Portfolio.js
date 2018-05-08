@@ -45,10 +45,11 @@ class Portfolio extends Component {
         }  
       }
 
+    document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");
     return (
       <div className="Portfolio">  
-        <div className="w3-container w3-center w3-padding-16">
-          <h3> PORTFÓLIO </h3>
+        <div className="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
+          <h1 class="titulo"> Portfólio </h1>
           <div id="tabela"></div>
         </div>
       </div>

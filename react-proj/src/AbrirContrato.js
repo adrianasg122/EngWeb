@@ -11,7 +11,6 @@ class AbrirContrato extends Component {
   }
 
   render() {
-    document.getElementById("abrirContratoNavBar").className = "w3-white w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white";
     return (
       <div className="AbrirContrato">
         <h1>Facebook, Inc.</h1>
@@ -19,7 +18,7 @@ class AbrirContrato extends Component {
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 w3-border ">
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Sigla:
+                <b>Sigla:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 FB
@@ -27,7 +26,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Abertura:
+                <b>Abertura:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 166.13
@@ -35,7 +34,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Compra:
+                <b>Compra:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 164.75
@@ -43,7 +42,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Venda:
+                <b>Venda:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 164.88
@@ -51,7 +50,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Valor Mercado:
+                <b>Valor Mercado:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 479.005B
@@ -59,7 +58,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Volume:
+                <b>Volume:</b>
               </div>
               <div className="col-xs-6 col-md-6">
                 73,570,230
@@ -67,7 +66,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Volume Médio:
+                <b>Volume Médio:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 21,993,430
@@ -75,7 +74,7 @@ class AbrirContrato extends Component {
             </div>
             <div className="row">
               <div className="col-xs-6 col-md-6">
-                Ultimo Fecho:
+                <b>Ultimo Fecho:</b>
                 </div>
               <div className="col-xs-6 col-md-6">
                 169.39
@@ -83,20 +82,34 @@ class AbrirContrato extends Component {
             </div>
           </div>
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-margin-top">
-          <div className="row w3-margin-top">
+            <div className="row w3-margin-top">
               <div className="col-xs-6">
-              Saldo:
+              <b>Saldo:</b>
               </div>
               <div className="col-xs-6">
-              1000€
+                1000€
               </div>
             </div>
             <div className="row">
-              <input className="col-xs-5 col-xs-offset-1"></input>
+              <input className="col-xs-6 col-xs-offset-1" />
             </div>
             <div className="row">
-              <input className="col-xs-4 col-xs-offset-1"></input>
-              <input className="col-xs-4 col-xs-offset-2"></input>
+              <form action="">
+                <div className="col-xs-6">
+                  <input type="radio" name="comprarVender" value="comprar"/> Comprar
+              </div>
+                <div className="col-xs-6">
+                  <input type="radio" name="comprarVender" value="vender"/> Vender
+              </div>
+              </form>
+            </div>
+            <div className="row">
+              <div className="col-xs-6">
+                <button type="button">Confirmar</button>
+              </div>
+              <div className="col-xs-6">
+                <button type="button">Voltar</button>
+              </div>
             </div>
           </div>
         </div>
