@@ -65,7 +65,7 @@ class App extends Component {
           <a className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this, 'Acao')}>Ações</a>
         </div>
 
-        <div className="w3-container col-xs-12 col-md-10">
+        <div className="w3-container col-xs-8 col-md-9">
           <div id="Comm" className="tabcontent w3-container">
             <h2 id="ComodAcao" className="titulo w3-padding-32"> Commodities</h2>
             <div className="w3-container table"></div>
