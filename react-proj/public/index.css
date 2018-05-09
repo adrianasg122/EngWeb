@@ -150,7 +150,7 @@ var pStyle2 {
 }
 
 .input {
-  width: 300px;
+  margin-left: 10px;
   height: 35px;
   padding: 10px 20px;
   border: 1px solid #b7b7b7;

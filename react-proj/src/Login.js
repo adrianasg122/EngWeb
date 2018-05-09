@@ -43,21 +43,20 @@ class Login extends Component {
 
     }
 
-
     render() {
         return (
             <div className="Login">
-                <div className="w3-container w3-padding-16">
+                <div className="row w3-container w3-padding-64">
                     <form onSubmit={this.handleSignIn.bind(this)}>
-                        <div className="w3-container w3-center w3-padding-32" >
-                            <p className="input_desc"> Username </p>
+                        <div className="w3-container w3-padding-32" >
+                            <b className="input_desc col-sm-offset-4 col-sm-2 col-md-2"> Username </b>
                             <input className="input" type="text" ref="username" />
                         </div>
-                        <div className="w3-container w3-center ">
-                            <p className="input_desc"> Password </p>
+                        <div className="w3-container">
+                            <b className="input_desc col-sm-offset-4 col-sm-2 col-md-2"> Password </b>
                             <input className="input" type="password" ref="password" />
                         </div>
-                        <div className="row w3-padding-32 w3-padding-large">
+                        <div className="row w3-padding-32">
                             <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                                 <a className="botao" href="/Registo">Registar</a>
                             </div>

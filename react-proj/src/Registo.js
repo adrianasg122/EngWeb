@@ -47,63 +47,63 @@ class Registo extends Component {
             <div className="Registo">
                 <div class="row w3-padding-32">
                     <form onSubmit={this.handleSignIn.bind(this)}>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc ">Primeiro Nome:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="pnome" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Último Nome:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="unome" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Username:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="username" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Contacto:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="contacto" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Plafond Inicial</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="plafond" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Password:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="password" />
                             </div>
                         </div>
-                        <div className="row w3-center w3-padding-16">
-                            <div className="col-sm-offset-3 col-sm-3 col-md-3">
+                        <div className="row w3-padding-16">
+                            <div className="col-sm-offset-4 col-sm-2 col-md-2">
                                 <b className="input_desc">Confirmar password:</b>
                             </div>
                             <div className="col-sm-2 col-md-2">
                                 <input className="input" type="text" ref="passwordC" />
                             </div>
                         </div>
-                        <div class="row w3-center w3-padding-32">
+                        <div class="row w3-padding-32">
                             <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                                 <a className="botao" href="/">Voltar</a>
                             </div>
