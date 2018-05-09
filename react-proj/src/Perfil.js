@@ -12,9 +12,10 @@ class Perfil extends Component {
 
   render() {
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
+    console.log(this.props);
     return (
       <div className="Perfil">
-        <h1 class="titulo">O Meu Perfil</h1>
+        <h1 className="titulo">O Meu Perfil</h1>
         <div className="row">
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1  ">
             <div className="perfil row w3-border-bottom">
@@ -38,7 +39,7 @@ class Perfil extends Component {
                 <b>Username:</b>
               </div>
               <div className="col-sm-6 col-md-6">
-                manuel123
+                {this.props.username}
               </div>
             </div>
             <div className="perfil row w3-border-bottom">
