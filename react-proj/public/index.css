@@ -53,11 +53,14 @@ var pStyle2 {
   
 }
 
-
 .Bar{
   font-size: 14px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.perfil {
+  padding: 7px;
 }
 
 .Perfil {
@@ -76,6 +79,9 @@ var pStyle2 {
   z-index:1;
   overflow:auto;
   margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
+  padding: 0px;
 }
 
 .tabcontent {
@@ -87,8 +93,6 @@ var pStyle2 {
   display: block;
   background-color: inherit;
   color: black;
-  padding: 22px 16px;
-  width: 100%;
   border: none;
   outline: none;
   text-align: left;
@@ -147,7 +151,7 @@ var pStyle2 {
 }
 
 .input {
-  width: 300px;
+  margin-left: 10px;
   height: 35px;
   padding: 10px 20px;
   border: 1px solid #b7b7b7;

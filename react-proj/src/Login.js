@@ -44,7 +44,6 @@ class Login extends Component {
 
     }
 
-
     onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
     onSubmit = () => {
         const errors = this.validateData(this.state.data);
@@ -84,7 +83,7 @@ class Login extends Component {
                             <br />
                             {errors.password && <this.inlineError text={errors.password} />}
                         </div>
-                        <div className="row w3-padding-32 w3-padding-large">
+                        <div className="row w3-padding-32">
                             <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                                 <a className="botao" href="/Registo">Registar</a>
                             </div>
