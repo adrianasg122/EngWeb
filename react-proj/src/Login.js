@@ -19,7 +19,10 @@ class Login extends Component {
         const errors = this.validateData(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-            this.props.submit(this.state.data);
+            /**
+             * TODO:
+             * Login
+            */
         }
     }
     validateData = (data) => {

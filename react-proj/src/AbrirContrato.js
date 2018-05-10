@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 class AbrirContrato extends Component {
 
   render() {
-    const id = this.props.idC;
-    console.log(id);
     return (
       <div className="AbrirContrato">
         <h1>Facebook, Inc.</h1>

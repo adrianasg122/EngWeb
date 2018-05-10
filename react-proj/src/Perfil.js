@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 class Perfil extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.i
-    }
-  }
 
   render() {
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");

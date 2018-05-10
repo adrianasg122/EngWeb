@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
 
-class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      i: 0
-    }
-  }
+class Home extends Component {
 
   openTab(name) {
     var i, x, tablinks;
@@ -82,4 +75,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default Home;
