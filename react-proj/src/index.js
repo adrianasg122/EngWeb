@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import App from './App';
+import Home from './Home';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Teste from './Teste.js';
@@ -34,7 +34,7 @@ class Index extends Component {
             <Router >
                 <div>
                     <Route exact path="/Login" render={() => <Login submit={this.submitLogin} />} />
-                    <Route exact path="/" component={App} />
+                    <Route exact path="/" component={Home} />
                     <Route exact path="/Registo" component={Registo} />
                     <Route path="/Teste" component={Teste} />
                     <Route path="/Perfil" render={() => <Perfil username={this.state.data.user.username} />} />

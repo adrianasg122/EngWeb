@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class AbrirContrato extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.i
-    }
-  }
-
   render() {
+    const id = this.props.idC;
+    console.log(id);
     return (
       <div className="AbrirContrato">
         <h1>Facebook, Inc.</h1>
@@ -117,6 +114,9 @@ class AbrirContrato extends Component {
   }
 }
 
+AbrirContrato.prototypes = {
+  idC: PropTypes.any.isRequired,
+};
 
 export default AbrirContrato;
 
