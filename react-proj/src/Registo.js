@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect, browserHistory, StaticRouter } from 'react-router';
-import Portfolio from './Portfolio';
+
 
 class Registo extends Component {
 

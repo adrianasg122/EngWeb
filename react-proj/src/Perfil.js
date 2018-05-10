@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Perfil extends Component {
 
@@ -39,7 +38,7 @@ class Perfil extends Component {
                 <b>Username:</b>
               </div>
               <div className="col-sm-6 col-md-6">
-                {this.props.username}
+                manuel123
               </div>
             </div>
             <div className="perfil row w3-border-bottom">

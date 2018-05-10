@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect, browserHistory, StaticRouter } from 'react-router-dom';
-import Portfolio from './Portfolio';
-import Registo from './Registo.js';
 
 
 
@@ -16,32 +12,6 @@ class Login extends Component {
         },
         logged: false,
         errors: {},
-    }
-
-
-    handleSignIn(e) {
-        e.preventDefault()
-        console.log("Before " + this.state.username);
-        console.log("Before " + this.state.password);
-        this.setState({ username: this.refs.username.value });
-        this.setState({ password: this.refs.password.value });
-        console.log("After " + this.state.username);
-        console.log("After " + this.state.password);
-        if ((this.state.username !== undefined && this.state.username !== '') && (this.state.password !== undefined && this.state.username !== '')) {
-            console.log("2 submited");
-            this.setState({ logged: true });
-            // duvida aqui !!!!!!
-            // browserHistory.push('/Portfolio');
-            // React.render(Portfolio);
-            window.location.replace("/App");
-        }
-        else {
-            console.log("not");
-        }
-    }
-
-    componentWillMount() {
-
     }
 
     onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
@@ -70,7 +40,7 @@ class Login extends Component {
         return (
             <div className="Login">
                 <div className="w3-container w3-padding-16">
-                    <form onSubmit={this.handleSignIn.bind(this)}>
+                    <form>
                         <div className="w3-container w3-center w3-padding-32">
                             <p className="input_desc"> Username </p>
                             <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChange} />

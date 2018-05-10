@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 
 class App extends Component {
@@ -28,6 +27,8 @@ class App extends Component {
         break;
       case "Acao":
         document.getElementById("bAcao").className += " w3-red";
+        break;
+      default:
         break;
     }
   }
