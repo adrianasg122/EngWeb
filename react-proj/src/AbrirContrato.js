@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class AbrirContrato extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.i
-    }
-  }
 
   render() {
     return (
@@ -117,6 +112,9 @@ class AbrirContrato extends Component {
   }
 }
 
+AbrirContrato.prototypes = {
+  idC: PropTypes.any.isRequired,
+};
 
 export default AbrirContrato;
 

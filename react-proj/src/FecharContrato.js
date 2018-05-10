@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 
 class FecharContrato extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.i
-    }
-  }
-
   render() {
     return (
       <div className="FecharContrato">
