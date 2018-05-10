@@ -9,8 +9,8 @@ class AbrirContrato extends Component {
       <div className="AbrirContrato">
         <h1>Facebook, Inc.</h1>
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 w3-border ">
-            <div className="row">
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 ">
+            <div className="row w3-padding-16">
               <div className="col-xs-6 col-md-6">
                 <b>Sigla:</b>
                 </div>
@@ -26,7 +26,7 @@ class AbrirContrato extends Component {
                 166.13
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-padding-16">
               <div className="col-xs-6 col-md-6">
                 <b>Compra:</b>
                 </div>
@@ -42,7 +42,7 @@ class AbrirContrato extends Component {
                 164.88
                 </div>
             </div>
-            <div className="row">
+            <div className="row w3-padding-16">
               <div className="col-xs-6 col-md-6">
                 <b>Valor Mercado:</b>
                 </div>
@@ -58,7 +58,7 @@ class AbrirContrato extends Component {
                 73,570,230
               </div>
             </div>
-            <div className="row">
+            <div className="row w3-padding-16">
               <div className="col-xs-6 col-md-6">
                 <b>Volume Médio:</b>
                 </div>
@@ -76,7 +76,7 @@ class AbrirContrato extends Component {
             </div>
           </div>
           <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 w3-margin-top">
-            <div className="row w3-margin-top">
+            <div className="row w3-padding-64">
               <div className="col-xs-6">
               <b>Saldo:</b>
               </div>
@@ -84,7 +84,7 @@ class AbrirContrato extends Component {
                 1000€
               </div>
             </div>
-            <div className="row">
+            <div className="row w3-padding-16">
               <input className="col-xs-6 col-xs-offset-1" />
             </div>
             <div className="row">
@@ -97,12 +97,10 @@ class AbrirContrato extends Component {
               </div>
               </form>
             </div>
-            <div className="row">
-              <div className="col-xs-6">
-                <button type="button">Confirmar</button>
-              </div>
-              <div className="col-xs-6">
-                <button type="button">Voltar</button>
+            <div className="row w3-padding-16">
+              <div className="col-xs-offset-1 col-xs-9">
+                <button className="botao" type="button">Confirmar</button>
+                <button className="botao" type="button">Voltar</button>
               </div>
             </div>
           </div>
