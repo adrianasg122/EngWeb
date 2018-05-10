@@ -39,7 +39,7 @@ class Registo extends Component {
     render() {
         return (
             <div className="Registo">
-                <div class="row w3-padding-32">
+                <div className="row w3-padding-32">
                     <form onSubmit={this.handleSignIn.bind(this)}>
                         <div className="row w3-padding-16">
                             <div className="col-sm-offset-4 col-sm-2 col-md-2">
@@ -97,11 +97,11 @@ class Registo extends Component {
                                 <input className="input" type="text" ref="passwordC" />
                             </div>
                         </div>
-                        <div class="row w3-padding-32">
-                            <div class="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
+                        <div className="row w3-padding-32">
+                            <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
                                 <a className="botao" href="/">Voltar</a>
                             </div>
-                            <div class="col-md-1 col-xs-2">
+                            <div className="col-md-1 col-xs-2">
                                 <a className="botao" onClick={this.handleSignIn.bind(this)}>Registar</a>
                             </div>
                         </div>

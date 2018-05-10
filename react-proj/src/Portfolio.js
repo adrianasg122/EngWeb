@@ -49,7 +49,7 @@ class Portfolio extends Component {
     return (
       <div className="Portfolio">  
         <div className="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
-          <h1 class="titulo"> Portfólio </h1>
+          <h1 className="titulo"> Portfólio </h1>
           <div id="tabela"></div>
         </div>
       </div>
