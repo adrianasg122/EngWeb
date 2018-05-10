@@ -123,6 +123,7 @@ var pStyle2 {
 
 
 .botao {
+  margin: 10px;
   padding: 5px 10px;
   outline: none;
   border: 1px solid #018dc4;

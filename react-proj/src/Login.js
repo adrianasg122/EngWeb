@@ -54,10 +54,8 @@ class Login extends Component {
                             {errors.password && <this.inlineError text={errors.password} />}
                         </div>
                         <div className="row w3-padding-32">
-                            <div className="col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-4">
+                            <div className="w3-center">
                                 <a className="botao" href="/Registo">Registar</a>
-                            </div>
-                            <div className="col-md-1 col-xs-2">
                                 <a className="botao" onClick={this.onSubmit} >Entrar</a>
                             </div>
                         </div>
