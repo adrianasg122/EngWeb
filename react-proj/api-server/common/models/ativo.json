@@ -1,0 +1,30 @@
+{
+  "name": "ativo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "sigla": {
+      "type": "string",
+      "required": true
+    },
+    "bid": {
+      "type": "number",
+      "required": true
+    },
+    "ask": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
