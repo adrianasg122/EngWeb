@@ -42,5 +42,9 @@
   "asset": {
     "dataSource": "db",
     "public": true
+  },
+  "coin": {
+    "dataSource": "mongo-ess",
+    "public": true
   }
 }
