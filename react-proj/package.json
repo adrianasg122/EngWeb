@@ -1,28 +1,17 @@
 {
-  "name": "react-proj",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.18.0",
-    "material-ui": "^0.20.0",
-    "native-base": "^2.4.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-native": "^0.54.4",
-    "react-router": "^3.2.1",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-tap-event-plugin": "^3.0.2",
-    "validator": "^10.1.0"
-  },
+  "name": "react-app-express",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && yarn start",
+    "server": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "react-scripts": "^1.1.4"
   },
   "devDependencies": {
-    "css-loader": "^0.28.11"
+    "concurrently": "^3.5.1"
   }
 }
