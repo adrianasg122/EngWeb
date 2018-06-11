@@ -20,6 +20,9 @@ connection.connect(function(err) {
   console.log('You are now connected...')
 })
 
+var spawn = require("child_process").spawn;
+var pythonProcess = spawn('python',["bd.py"]);
+
 app.get('/ESS', function(req, res, next) {
   var id = 1;
   
