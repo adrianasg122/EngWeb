@@ -80,37 +80,37 @@ def background():
     cursor.execute("Delete from ess.Coin;")
     conn.commit()
     global coinList
-    idArt = 0
+    i = 0
     while(True):
         cursor.execute("Delete from ess.Coin;")
-        for (id,symbol) in coinList:
-            headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-            r = requests.get('https://api.coinmarketcap.com/v1/ticker/',headers=headers)
-            reqJson = r.json()
-            for idArt in reqJson.lenght:
-                workFL = []
-                print reqJson[idArt]["symbol"] ; 
-                
-                """
-                # Verifica se alguma das referencias de um artigo tem ligacao ao scopus se tiver adiciona a lista WorkFL
-                for work in art["work-summary"]:
-                    for eid in work["external-ids"]["external-id"]:
-                        if (eid["external-id-type"]=="eid"):
-                            workFL.append(work)
-                if (workFL == []):
-                    # Caso nenhuma das referencias esteja ligada ao scopus apenas guarda o titulo
-                    artTitle = art["work-summary"][0]["title"]["title"]["value"]
-                    saveWithoutScopus(idArt, id, artTitle)
-                    idArt+=1
-                else:
-                    # Caso hajam varias referencias com ligacao ao scopus analisa a que tem display-index menor
-                    workF = workFL[0]
-                    for work in workFL:
-                        if (int(work["display-index"]) < int(workF["display-index"])):
-                            workF = work
-                    saveWithScopus(idArt,id,art["last-modified-date"]["value"],workF)                    
-                """
+        #for (id,symbol) in coinList:
+        headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+        r = requests.get('https://api.coinmarketcap.com/v1/ticker/',headers=headers)
+        reqJson = r.json()
+        for i in range(len(reqJson)):
+            workFL = []
+            print reqJson[i]["symbol"] ; 
+            
+            """
+            # Verifica se alguma das referencias de um artigo tem ligacao ao scopus se tiver adiciona a lista WorkFL
+            for work in art["work-summary"]:
+                for eid in work["external-ids"]["external-id"]:
+                    if (eid["external-id-type"]=="eid"):
+                        workFL.append(work)
+            if (workFL == []):
+                # Caso nenhuma das referencias esteja ligada ao scopus apenas guarda o titulo
+                artTitle = art["work-summary"][0]["title"]["title"]["value"]
+                saveWithoutScopus(idArt, id, artTitle)
                 idArt+=1
+            else:
+                # Caso hajam varias referencias com ligacao ao scopus analisa a que tem display-index menor
+                workF = workFL[0]
+                for work in workFL:
+                    if (int(work["display-index"]) < int(workF["display-index"])):
+                        workF = work
+                saveWithScopus(idArt,id,art["last-modified-date"]["value"],workF)                    
+            """
+            i+=1
         conn.commit()
         coinList = getCoinsDB()
         time.sleep(5)
@@ -136,6 +136,17 @@ def saveWithScopus(idArt,idorcid,lastModDate,work):
     cursor.execute("Insert into si.Article (idArticle, lastDate, title, year) values ("+str(idArt)+","+str(lastModDate)+",\""+artTitle+"\","+year+");")
     cursor.execute("Insert into si.Orc_Article (idArticle, idOrc) values (\""+str(idArt)+"\",\""+str(idorcid)+"\");")
 """
+
+
+
+def insert(id,name,symbol,price, percentageChange,lastModDate):
+#    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+#    r = requests.get('https://api.elsevier.com/content/abstract/citations?scopus_id=' + scopusID + '&apiKey=4bea4f758eda4188f6923c7a4c851380&httpAccept=application%2Fjson',headers=headers)
+#    reqJson = r.json()
+#    print reqJson
+    cursor.execute("Insert into ess.Coin (id, name, symbol, price , percentageChange , lastModDate) values ("+str(id)+","+name+","+symbol+","+str(price)+","+str(percentageChange)+","+str(lastModDate)");")
+    
+
 
 
 
