@@ -89,7 +89,7 @@ def background():
         reqJson = r.json()
         for i in range(len(reqJson)):
             workFL = []
-            print reqJson[i]["symbol"] ; 
+            print reqJson[i]["name"],"--",reqJson[i]["price_usd"],"--",reqJson[i]["percent_change_24h"] ; 
             
             """
             # Verifica se alguma das referencias de um artigo tem ligacao ao scopus se tiver adiciona a lista WorkFL
@@ -138,14 +138,14 @@ def saveWithScopus(idArt,idorcid,lastModDate,work):
 """
 
 
-
+"""
 def insert(id,name,symbol,price, percentageChange,lastModDate):
 #    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 #    r = requests.get('https://api.elsevier.com/content/abstract/citations?scopus_id=' + scopusID + '&apiKey=4bea4f758eda4188f6923c7a4c851380&httpAccept=application%2Fjson',headers=headers)
 #    reqJson = r.json()
 #    print reqJson
     cursor.execute("Insert into ess.Coin (id, name, symbol, price , percentageChange , lastModDate) values ("+str(id)+","+name+","+symbol+","+str(price)+","+str(percentageChange)+","+str(lastModDate)");")
-    
+   """ 
 
 
 
