@@ -32,11 +32,26 @@ app.get('/ESS/coins', function (req, res) {
   })
 });
 
+app.post('/ESS/post', function (req, res) {
+  let pname = req.body.pname ;
+  let uname = req.body.uname ;
+  let username = req.body.username ;
+  let contacto = req.body.contacto ;
+  let password = req.body.password ;
+  let plafond = req.body.plafond ;
+  console.log(d.pnome);
+  connection.query('INSERT INTO User values (?,?,?,?,?,?)', {pname:pname} , {uname:uname} , {username:username} , {contacto:contacto} , {password:password} , {plafond:plafond} , function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
 app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send(JSON.stringify(results));
+    res.send(JSON.stringify("Added!!"));
   })
 });
 

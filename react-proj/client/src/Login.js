@@ -42,7 +42,7 @@ class Login extends Component {
          * Validate Existence of User
         */
        for (x in this.state.users) {
-            if(this.state.users[x].username == data.username && this.state.users[x].password == data.password)
+            if(this.state.users[x].username === data.username && this.state.users[x].password === data.password)
                 break;
             else if (this.state.users[x].username === data.username && this.state.users[x].password !== data.password)
                 errors.password= "Wrong password";
