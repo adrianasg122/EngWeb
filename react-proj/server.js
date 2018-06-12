@@ -51,10 +51,27 @@ app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send(JSON.stringify("Added!!"));
+    res.send(JSON.stringify(results));
   })
 });
 
+app.get('/ESS/user', function (req, res) {
+  i = 1 ; 
+  connection.query('SELECT * FROM User where id = "' +1+ '"', function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
+
+app.get('/ESS/contratos', function (req, res) {
+  connection.query('SELECT * FROM Contrato', function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
 
 
 

@@ -2,8 +2,36 @@ import React, { Component } from 'react';
 
 class Perfil extends Component {
 
+  state = {
+    user: {
+        pnome:'',
+        unome:'',
+        username: '',
+        plafond: null,
+        contacto: null,
+        password: '',
+    },
+    logged: false,
+    errors: {},
+    users: [],
+    response:''
+}
+
+
+  componentDidMount() {
+    fetch('/ESS/user')
+      .then(res => res.json())
+      .then(users=> { this.setState({ users: users }), console.log(users)});
+  }
+
 
   render() {
+  
+      //var p = this.state.users[0].pname ; 
+      //console.log(this.state.users[0].pnome)
+      //var u = this.state.users[0].unome
+    
+
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
     console.log(this.props);
     return (
@@ -16,7 +44,7 @@ class Perfil extends Component {
                 <b>Primeiro Nome:</b>
               </div>
               <div className="col-sm-6 col-md-6">
-                Manuel
+                {1}
               </div>
             </div>
             <div className="perfil row w3-border-bottom">
