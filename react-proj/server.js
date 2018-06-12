@@ -32,5 +32,16 @@ app.get('/ESS/coins', function (req, res) {
   })
 });
 
+app.get('/ESS/users', function (req, res) {
+  connection.query('SELECT * FROM User', function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
+
+
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
