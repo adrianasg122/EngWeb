@@ -26,31 +26,31 @@ app.get('/ESS', function(req, res, next) {
 
 app.get('/ESS/coins', function (req, res) {
   connection.query('SELECT * FROM Coin', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
   })
 });
 
-app.post('/ESS/post', function (req, res) {
-  let pname = req.body.pname ;
-  let uname = req.body.uname ;
+app.post('/ESS/registar', function (req, res) {
+  let pname = req.body.pnome ;
+  let uname = req.body.unome ;
   let username = req.body.username ;
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
-  console.log(pnome);
-  connection.query('INSERT INTO User values (?,?,?,?,?,?)', pname , uname , username , contacto , password , plafond , function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
+  sql = 'INSERT INTO User(username,pname,uname,contact,password,saldo) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+') WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\')';
+  console.log(sql)
+  connection.query(sql , function (err, results) {
     if (err) throw err
-    res.send("Added!!");
-  })
+    res.send("Added");
+  });
 });
 
 app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
+<<<<<<< HEAD
     res.send(JSON.stringify(results));
   })
 });
@@ -61,6 +61,9 @@ app.get('/ESS/user', function (req, res) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
+=======
+    res.send(JSON.stringify("login"));
+>>>>>>> de521dc17f9585d548e1dac464e46f0caee52b38
   })
 });
 
