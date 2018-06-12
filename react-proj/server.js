@@ -50,7 +50,6 @@ app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-<<<<<<< HEAD
     res.send(JSON.stringify(results));
   })
 });
@@ -61,9 +60,6 @@ app.get('/ESS/user', function (req, res) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
-=======
-    res.send(JSON.stringify("login"));
->>>>>>> de521dc17f9585d548e1dac464e46f0caee52b38
   })
 });
 
