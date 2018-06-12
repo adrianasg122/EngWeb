@@ -10,11 +10,11 @@ class Home extends Component {
     fetch('/ESS/coins')
       .then(res => res.json())
       .then(data => this.setState({ data: data }));
+      console.log(this.state.data)
   }
 
   openTab(name) {
     var i, x, tablinks;
-    console.log(this.state.data)
     x = document.getElementsByClassName("tabcontent");
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
