@@ -32,11 +32,14 @@ app.get('/ESS/coins', function (req, res) {
   })
 });
 
-app.get('/ESS/users', function (req, res) {
-  connection.query('SELECT * FROM User', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
-    if (err) throw err
-    res.send(JSON.stringify(results));
+app.get('/ESS/login', function (req, res) {
+    connection.query('SELECT COUNT(id) FROM User WHERE '+req.username+' = username AND '+req.password+' = password', function (err, results) {
+      if (err) throw err
+      if (results === 1)
+        res.send("true");
+      else 
+        res.send("false");
+    
   })
 });
 
