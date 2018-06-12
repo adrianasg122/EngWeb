@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'root',
-  database : 'ess'
+  database : 'ESS'
 });
 
 connection.connect(function(err) {
@@ -28,7 +28,7 @@ app.get('/ESS/coins', function (req, res) {
   connection.query('SELECT * FROM Coin', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send(JSON.stringify(results));
+    res.send(JSON.stringify(results.slice(1,20)));
   })
 });
 
