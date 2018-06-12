@@ -13,8 +13,8 @@ class Login extends Component {
 
 
 
-    onChangeU = e => this.setState({ username: e.target.value})
-    onChangeP = e => this.setState({ password: e.target.value })
+    onChangeU = e => this.setState( {data: { ...this.state.data, username: e.target.value}})
+    onChangeP = e => this.setState({ data: { ...this.state.data, password: e.target.value }})
 
     onSubmit = () => {
         const errors = this.validateData(this.state.data);
