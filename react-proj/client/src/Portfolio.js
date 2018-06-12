@@ -10,25 +10,18 @@ class Portfolio extends Component {
     }
   }
 
-  loadData() {
-    var data;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "./data.json", false);
-    xmlhttp.onload = function() {
-        data = JSON.parse(this.responseText);
-    }
-    xmlhttp.send();
+  loadData(data) {
     var portfolio,x;
     portfolio = [];
     for (x in data) {
       const newPort = {
         id: data[x].id,
-        initials: data[x].initials,
-        ask: data[x].ask,
+        initials: data[x].symbol,
+        ask: data[x].price,
         units: data[x].id,
-        open: data[x].open,
-        volume: data[x].volume,
-        market_cap: data[x].market_cap
+        open: data[x].price,
+        volume: data[x].price,
+        market_cap: data[x].price
       };
       portfolio = portfolio.concat(newPort);
     }
@@ -39,7 +32,9 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    fetch('/ESS/coins')
+      .then(res => res.json())
+      .then(data => this.loadData(data));
     document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");
   }
 
