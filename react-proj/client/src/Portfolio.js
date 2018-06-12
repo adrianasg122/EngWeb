@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PortList from './components/PortList';
 
 class Portfolio extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -11,8 +10,7 @@ class Portfolio extends Component {
     }
   }
 
-
-  componentDidMount() {
+  loadData() {
     var data;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "./data.json", false);
@@ -20,12 +18,8 @@ class Portfolio extends Component {
         data = JSON.parse(this.responseText);
     }
     xmlhttp.send();
-
-
-    var x;
-    var portfolio;
+    var portfolio,x;
     portfolio = [];
-
     for (x in data) {
       const newPort = {
         id: data[x].id,
@@ -38,14 +32,18 @@ class Portfolio extends Component {
       };
       portfolio = portfolio.concat(newPort);
     }
-
     this.setState({
       portfolioL: portfolio,
       portFCounter: portfolio.length
     });
   }
 
-  open(id) {
+  componentDidMount() {
+    this.loadData();
+    document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");
+  }
+
+  openPortF(id) {
     console.log(id);
   }
 
@@ -54,7 +52,7 @@ class Portfolio extends Component {
       <div className="Portfolio">  
         <div className="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
           <h1 className="titulo"> Portfólio </h1>
-          <PortList portFs={this.state.portfolioL} onclick={(id) => this.open(id)}/>
+          <PortList portFs={this.state.portfolioL} onclick={(id) => this.openPortF(id)}/>
         </div>
       </div>
     );
