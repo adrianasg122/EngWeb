@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'root',
+  password : '',
   database : 'ESS'
 });
 
@@ -33,18 +33,19 @@ app.get('/ESS/coins', function (req, res) {
 });
 
 app.post('/ESS/post', function (req, res) {
-  let pname = req.body.pname ;
-  let uname = req.body.uname ;
+  let pname = req.body.pnome ;
+  let uname = req.body.unome ;
   let username = req.body.username ;
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
   console.log(pnome);
-  connection.query('INSERT INTO User values (?,?,?,?,?,?)', pname , uname , username , contacto , password , plafond , function (err, results) {
+  sql = 'INSERT INTO User(pname,uname,username,contact,password,saldo) values (\''+pname+'\',\''+uname+'\',\''+username+'\','+contacto+',\''+password+'\','+plafond+')';
+  connection.query(sql , function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send("Added!!");
-  })
+  });
 });
 
 app.get('/ESS/users', function (req, res) {

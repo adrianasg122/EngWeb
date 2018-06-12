@@ -8,9 +8,10 @@ class Registo extends Component {
             pnome:'',
             unome:'',
             username: '',
-            plafond: null,
-            contacto: null,
+            plafond: '',
+            contacto: '',
             password: '',
+            password2: ''
         },
         logged: false,
         errors: {},
@@ -25,6 +26,7 @@ class Registo extends Component {
       }
 
       postApi() {
+          console.log(this.state.data);
         fetch('/ESS/post',{
             method: 'POST',
             body: JSON.stringify({
@@ -39,7 +41,8 @@ class Registo extends Component {
           })
           .then(function(response){
             return response.json()
-          }).then(function(body){
+          })
+          .then(function(body){
             console.log(body);
           });
       };
@@ -64,8 +67,8 @@ class Registo extends Component {
         var i ; 
         i=0 ; 
         var x
-        if (!data.pname) errors.pname = "Can't be blank";
-        if (!data.uname) errors.uname = "Can't be blank";
+        if (!data.pnome) errors.pnome = "Can't be blank";
+        if (!data.unome) errors.unome = "Can't be blank";
         if (!data.username) errors.username = "Can't be blank";
         if (!data.contacto) errors.contacto = "Can't be blank";
         if (!data.plafond) errors.plafond = "Can't be blank";
@@ -178,15 +181,15 @@ render() {
                 <form>
                     <div className="w3-container w3-center w3-padding-8">
                         <p className="input_desc"> Primeiro Nome </p>
-                        <input className="input" type="text" name="pname" id="pname" value={data.pname} onChange={this.onChange} />
+                        <input className="input" type="text" name="pnome" id="pnome" value={data.pnome} onChange={this.onChange} />
                         <br />
-                        {errors.pname && <this.inlineError text={errors.pname} />}
+                        {errors.pnome && <this.inlineError text={errors.pnome} />}
                     </div>
                     <div className="w3-container w3-center w3-padding-8">
                         <p className="input_desc"> Ultimo Nome </p>
-                        <input className="input" type="text" name="uname" id="uname" value={data.uname} onChange={this.onChange} />
+                        <input className="input" type="text" name="unome" id="unome" value={data.unome} onChange={this.onChange} />
                         <br />
-                        {errors.uname && <this.inlineError text={errors.uname} />}
+                        {errors.unome && <this.inlineError text={errors.unome} />}
                     </div>
                     <div className="w3-container w3-center w3-padding-8">
                         <p className="input_desc"> Username </p>
