@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'ESS'
 });
 
@@ -26,25 +26,23 @@ app.get('/ESS', function(req, res, next) {
 
 app.get('/ESS/coins', function (req, res) {
   connection.query('SELECT * FROM Coin', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
   })
 });
 
-app.post('/ESS/post', function (req, res) {
+app.post('/ESS/registar', function (req, res) {
   let pname = req.body.pnome ;
   let uname = req.body.unome ;
   let username = req.body.username ;
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
-  console.log(pnome);
-  sql = 'INSERT INTO User(pname,uname,username,contact,password,saldo) values (\''+pname+'\',\''+uname+'\',\''+username+'\','+contacto+',\''+password+'\','+plafond+')';
+  sql = 'INSERT INTO User(username,pname,uname,contact,password,saldo) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+') WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\')';
+  console.log(sql)
   connection.query(sql , function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send("Added!!");
+    res.send("Added");
   });
 });
 
@@ -52,7 +50,7 @@ app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send(JSON.stringify("Added!!"));
+    res.send(JSON.stringify("login"));
   })
 });
 

@@ -9,48 +9,33 @@ class Login extends Component {
         },
         logged: false,
         errors: {},
-        users: [],
     }
 
-    componentDidMount() {
-        fetch('/ESS/users')
-          .then(res => res.json())
-          .then(users => { this.setState({ users: users }), console.log(users)});
-      }
 
-    onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
+
+    onChangeU = e => this.setState( {data: { ...this.state.data, username: e.target.value}})
+    onChangeP = e => this.setState({ data: { ...this.state.data, password: e.target.value }})
+
     onSubmit = () => {
         const errors = this.validateData(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-            /**
-             * TODO:
-             * Login
-            */
-           window.location.replace("/");
+
+            fetch('/ESS/login?username=' + this.state.data.username + '&password=' + this.state.data.password)
+                .then(res => res.json())
+                .then(res => this.setState({ logged: res }));
+
+            window.location.replace("/");
         }
     }
     validateData = (data) => {
         const errors = {};
-        var i ; 
-        i=0 ; 
+        var i;
+        i = 0;
         var x
         if (!data.username) errors.username = "Can't be blank";
-        if (!data.password) errors.password = "Can't be blank";    
-        /**
-         * TODO:
-         * Validate Existence of User
-        */
-       for (x in this.state.users) {
-            if(this.state.users[x].username === data.username && this.state.users[x].password === data.password)
-                break;
-            else if (this.state.users[x].username === data.username && this.state.users[x].password !== data.password)
-                errors.password= "Wrong password";
-            else 
-                i++ ; 
-       }
-       if (i==this.state.users.length)
-            errors.username = "User not found";
+        if (!data.password) errors.password = "Can't be blank";
+
         return errors;
     }
 
@@ -64,13 +49,13 @@ class Login extends Component {
                     <form>
                         <div className="w3-container w3-center w3-padding-32">
                             <p className="input_desc"> Username </p>
-                            <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChange} />
+                            <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChangeU} />
                             <br />
                             {errors.username && <this.inlineError text={errors.username} />}
                         </div>
                         <div className="w3-container w3-center ">
                             <p className="input_desc"> Password </p>
-                            <input className="input" type="password" name="password" id="password" value={data.password} onChange={this.onChange} />
+                            <input className="input" type="password" name="password" id="password" value={data.password} onChange={this.onChangeP} />
                             <br />
                             {errors.password && <this.inlineError text={errors.password} />}
                         </div>
