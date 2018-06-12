@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 
 class Home extends Component {
-  state = {
-    data: []
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+    }
   }
 
   componentDidMount() {
     fetch('/ESS/coins')
       .then(res => res.json())
-      .then(data => this.setState({ data: data }));
-      console.log(this.state.data)
+      .then(data => { this.setState({ data: data }), console.log(data)});
   }
 
   openTab(name) {
