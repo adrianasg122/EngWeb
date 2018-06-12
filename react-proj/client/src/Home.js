@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 
 
 class Home extends Component {
+  state = {
+    data: []
+  }
+
+  componentDidMount() {
+    fetch('/ESS/coins')
+      .then(res => res.json())
+      .then(data => this.setState({ data: data }));
+  }
 
   openTab(name) {
     var i, x, tablinks;
+    console.log(this.state.data)
     x = document.getElementsByClassName("tabcontent");
     for (i = 0; i < x.length; i++) {
       x[i].style.display = "none";
@@ -28,20 +38,13 @@ class Home extends Component {
 
   render() {
 
-    var data, tables;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "./data.json", false);
-    xmlhttp.onload = function () {
-      data = JSON.parse(this.responseText);
-    }
-    xmlhttp.send();
-
-    var txt = "", x;
+    var tables, x;
+    var txt = "";
     txt += "<table id=\"tableID\"class=\"w3-table-all\" style=\"cursor: pointer;\" >"
-    txt += "<tr><th> Ativo </th><th>Total invstido(€)</th><th>Preço Abertura(€)</th><th>Preço Fecho(€)</th><th>Data Abertura</th><th>Data fecho</th><th>Ganho/perda(€)</th><th>Ganho/Perda(%)</th></tr>";
+    txt += "<tr><th>Ativo</th><th>Variação 24h</th><th>Venda(€)</th><th>Compra(€)</th></tr>";
 
-    for (x in data) {
-      txt += "<tr class=\"tableHover\"><td>" + data[x].initials + "</td><td>" + data[x].ask + "</td><td>" + data[x].id + "</td><td>" + data[x].open + "</td><td>" + data[x].volume + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td><td>" + data[x].market_cap + "</td></tr>";
+    for (x in this.state.data) {
+      txt += "<tr class=\"tableHover\"><td>" + this.state.data[x].name + "</td><td>" + this.state.data[x].price + "</td><td>" + this.state.data[x].symbol + "</td><td>" + this.state.data[x].price + "</td></tr>";
     }
     txt += "</table>"
     window.onload = function () {
@@ -58,7 +61,6 @@ class Home extends Component {
           <a className="w3-bar-item w3-button w3-red tablink " id="bComm" onClick={this.openTab.bind(this, 'Comm')}>Commodities</a>
           <a className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this, 'Acao')}>Ações</a>
         </div>
-
         <div className="w3-container col-xs-8 col-md-9">
           <div id="Comm" className="tabcontent w3-container">
             <h2 id="ComodAcao" className="titulo w3-padding-32"> Commodities</h2>
