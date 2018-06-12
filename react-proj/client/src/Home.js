@@ -12,7 +12,7 @@ class Home extends Component {
   componentDidMount() {
     fetch('/ESS/coins')
       .then(res => res.json())
-      .then(data => { this.setState({ data: data }), console.log(data)});
+      .then(data => this.setState( {data: data}));
   }
 
   openTab(name) {
@@ -46,6 +46,7 @@ class Home extends Component {
     txt += "<tr><th>Ativo</th><th>Variação 24h</th><th>Venda(€)</th><th>Compra(€)</th></tr>";
 
     for (x in this.state.data) {
+      //console.log(this.state.data[x].name)
       txt += "<tr class=\"tableHover\"><td>" + this.state.data[x].name + "</td><td>" + this.state.data[x].price + "</td><td>" + this.state.data[x].symbol + "</td><td>" + this.state.data[x].price + "</td></tr>";
     }
     txt += "</table>"
