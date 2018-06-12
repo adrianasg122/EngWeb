@@ -9,7 +9,14 @@ class Login extends Component {
         },
         logged: false,
         errors: {},
+        users: [],
     }
+
+    componentDidMount() {
+        fetch('/ESS/users')
+          .then(res => res.json())
+          .then(users => { this.setState({ users: users }), console.log(users)});
+      }
 
     onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
     onSubmit = () => {
@@ -20,16 +27,30 @@ class Login extends Component {
              * TODO:
              * Login
             */
+           window.location.replace("/");
         }
     }
     validateData = (data) => {
         const errors = {};
+        var i ; 
+        i=0 ; 
+        var x
         if (!data.username) errors.username = "Can't be blank";
-        if (!data.password) errors.password = "Can't be blank";
+        if (!data.password) errors.password = "Can't be blank";    
         /**
          * TODO:
          * Validate Existence of User
         */
+       for (x in this.state.users) {
+            if(this.state.users[x].username == data.username && this.state.users[x].password == data.password)
+                break;
+            else if (this.state.users[x].username === data.username && this.state.users[x].password !== data.password)
+                errors.password= "Wrong password";
+            else 
+                i++ ; 
+       }
+       if (i==this.state.users.length)
+            errors.username = "User not found";
         return errors;
     }
 
