@@ -24,7 +24,7 @@ class Registo extends Component {
           .then(users => { this.setState({ users: users }), console.log(users)});
       }
 
-      postApi = async () => {
+      postApi() {
         fetch('/ESS/post',{
             method: 'POST',
             body: JSON.stringify({
@@ -55,9 +55,7 @@ class Registo extends Component {
              * Login
             */
            // POST
-           this.postApi()
-                .then(res => this.setState({ response: res.express }))
-                .catch(err => console .log(err));
+           this.postApi();
            //window.location.replace("/");
         }
     }

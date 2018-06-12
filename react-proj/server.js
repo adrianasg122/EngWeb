@@ -39,11 +39,11 @@ app.post('/ESS/post', function (req, res) {
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
-  console.log(d.pnome);
-  connection.query('INSERT INTO User values (?,?,?,?,?,?)', {pname:pname} , {uname:uname} , {username:username} , {contacto:contacto} , {password:password} , {plafond:plafond} , function (err, results) {
+  console.log(pnome);
+  connection.query('INSERT INTO User values (?,?,?,?,?,?)', pname , uname , username , contacto , password , plafond , function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
-    res.send(JSON.stringify(results));
+    res.send("Added!!");
   })
 });
 
