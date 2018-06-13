@@ -15,14 +15,17 @@ var connection = mysql.createConnection({
   database : 'ESS'
 });
 
+
 connection.connect(function(err) {
   if (err) throw err
   console.log('You are now connected...')
 })
 
+
 app.get('/ESS', function(req, res, next) {
   var id = 1;
 });
+
 
 app.get('/ESS/coins', function (req, res) {
   connection.query('SELECT * FROM Coin', function (err, results) {
@@ -30,6 +33,7 @@ app.get('/ESS/coins', function (req, res) {
     res.send(JSON.stringify(results));
   })
 });
+
 
 app.post('/ESS/registar', function (req, res) {
   let pname = req.body.pnome ;
@@ -48,12 +52,14 @@ app.post('/ESS/registar', function (req, res) {
   });
 });
 
+
 app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
     if (err) throw err
     res.send(JSON.stringify(results));
   })
 });
+
 
 app.get('/ESS/user', function (req, res) {
   i = 1 ; 
@@ -62,6 +68,7 @@ app.get('/ESS/user', function (req, res) {
     res.send(JSON.stringify(results));
   })
 });
+
 
 app.get('/ESS/login', function (req, res) {
   i = 1 ; 
@@ -73,7 +80,6 @@ app.get('/ESS/login', function (req, res) {
     res.send(JSON.stringify(results));
   })
 });
-
 
 
 app.get('/ESS/Coin', function (req, res) {
@@ -95,6 +101,20 @@ app.get('/ESS/contratos', function (req, res) {
   })
 });
 
+
+app.post('/ESS/addCont', function (req, res) {
+  let user = req.body.user ;
+  let id = req.body.id ;
+  let name = req.body.name ;
+  let price = req.body.price ;
+  let quant = req.body.quant ;
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+',0,0)';
+  console.log(sql)
+  connection.query(sql , function (err, results) {
+    if (err) throw err
+    res.send("Added");
+  });
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
