@@ -1,3 +1,5 @@
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -18,8 +20,6 @@ USE `ess` ;
 -- -----------------------------------------------------
 -- Table `ess`.`Coin`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ess`.`Coin` ;
-
 CREATE TABLE IF NOT EXISTS `ess`.`Coin` (
   `id` VARCHAR(50) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
@@ -34,42 +34,38 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `ess`.`User`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ess`.`User` ;
-
 CREATE TABLE IF NOT EXISTS `ess`.`User` (
-  `id` INT(11) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
   `pname` VARCHAR(45) NOT NULL,
   `uname` VARCHAR(45) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
   `contact` INT(15) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `saldo` DOUBLE NOT NULL,
-  PRIMARY KEY (`id`))
+  `email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`username`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `ess`.`Contrato`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ess`.`Contrato` ;
-
 CREATE TABLE IF NOT EXISTS `ess`.`Contrato` (
   `id` INT(11) NOT NULL,
-  `idUser` INT(11) NOT NULL,
   `idCoin` VARCHAR(50) NOT NULL,
+  `idUser` VARCHAR(20) NOT NULL,
   `quant` INT(11) NOT NULL,
   `price` DOUBLE NOT NULL,
   `venda` INT(11) NOT NULL,
   `concluido` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `idCoin` (`idCoin` ASC),
-  INDEX `idUser` (`idUser` ASC),
+  INDEX `idCoin_idx` (`idCoin` ASC),
+  INDEX `isUser_idx` (`idUser` ASC),
   CONSTRAINT `idCoin`
     FOREIGN KEY (`idCoin`)
     REFERENCES `ess`.`Coin` (`id`),
-  CONSTRAINT `idUser`
+  CONSTRAINT `isUser`
     FOREIGN KEY (`idUser`)
-    REFERENCES `ess`.`User` (`id`))
+    REFERENCES `ess`.`User` (`username`))
 ENGINE = InnoDB;
 
 
