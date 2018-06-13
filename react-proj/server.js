@@ -38,7 +38,8 @@ app.post('/ESS/registar', function (req, res) {
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
-  sql = 'INSERT INTO User(username,pname,uname,contact,password,saldo) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+') WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\')';
+  /** WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\') */
+  sql = 'INSERT INTO User(username,pname,uname,contact,password,saldo) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+')';
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err
