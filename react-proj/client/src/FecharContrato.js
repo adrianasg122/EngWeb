@@ -149,7 +149,7 @@ class FecharContrato extends Component {
           <div className="row col-xs-offset-2">
             <div className="col-xs-4 ">
               <button className="botao" type="button" onClick={this.confirm()}>Fechar Contrato</button>
-              <button className="botao" type="button">Voltar</button>
+              <button className="botao" type="button" onClick={() => window.location.replace("/Portfolio")}>Voltar</button>
             </div>
           </div>
         </div>
