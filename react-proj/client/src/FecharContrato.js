@@ -13,8 +13,7 @@ class FecharContrato extends Component {
     var pedido = '/ESS/Contrato?id=' + localStorage.getItem("fecharC");
     fetch(pedido)
       .then(res => res.json())
-      .then(res => this.setState({ data: res[0] }));
-
+      .then(res => this.setState({ data: res }));
   }
 
   confirm() {
@@ -22,20 +21,33 @@ class FecharContrato extends Component {
       method: 'POST',
       body: JSON.stringify({
         user: localStorage.getItem("user"),
+<<<<<<< HEAD
         id: localStorage.getItem("fecharC"),
         price: this.state.data.price,
         quant: this.state.data.quant,
         idCoin: this.state.data.idCoin
+=======
+        id: this.state.data.map(contrato => (contrato.id)),
+        price: this.state.data.map(contrato => (contrato.price)),
+        quant: this.state.data.map(contrato => (contrato.quant)),
+        idCoin: this.state.data.map(contrato => (contrato.idCoin)),
+        venda: this.state.data.map(contrato => (contrato.venda))
+>>>>>>> 272d5141e0c0262d24f13963af7b279ad6e8e595
       }),
       headers: { "Content-Type": "application/json" }
     })
-      .then(function () {
+      .then(() => {
         window.location.replace("/");
       })
       .then(res => this.setState({ response: res }));
   }
 
   render() {
+    console.log(this.state.data)
+    if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
+      window.location.replace("/");
+      return null;
+    }
     return (
       <div className="FecharContrato">
         <div className="row">
@@ -55,7 +67,7 @@ class FecharContrato extends Component {
                   <b>Tipo*:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  {this.state.data.map(contrato => contrato.venda)}
+                  {this.state.data.map(contrato => contrato.venda)==1?"Venda":"Compra"}
                 </div>
               </div>
               <div className="row">
@@ -148,7 +160,7 @@ class FecharContrato extends Component {
           </div>
           <div className="row col-xs-offset-2">
             <div className="col-xs-4 ">
-              <button className="botao" type="button" onClick={this.confirm()}>Fechar Contrato</button>
+              <button className="botao" type="button" onClick={() => this.confirm()}>Fechar Contrato</button>
               <button className="botao" type="button" onClick={() => window.location.replace("/Portfolio")}>Voltar</button>
             </div>
           </div>
