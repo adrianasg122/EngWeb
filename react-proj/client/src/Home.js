@@ -39,22 +39,8 @@ class Home extends Component {
     }
 
     render() {
-
-        var tables, x;
-        var txt = "";
-        txt += "<table id=\"tableID\"class=\"w3-table-all\" style=\"cursor: pointer;\" >"
-        txt += "<tr><th>Ativo</th><th>Variação 24h</th><th>Venda(€)</th><th>Compra(€)</th></tr>";
-
-        for (x in this.state.data) {
-            txt += "<tr class=\"tableHover\"><td>" + this.state.data[x].name + "</td><td>" + this.state.data[x].price + "</td><td>" + this.state.data[x].symbol + "</td><td>" + this.state.data[x].price + "</td></tr>";
-        }
-        txt += "</table>"
         window.onload = function() {
             this.document.getElementById("Comm").style.display = "block";
-            tables = document.getElementsByClassName("table");
-            for (var i = 0; i < tables.length; i++) {
-                tables[i].innerHTML = txt;
-            }
         }
         document.getElementById("homeNavBar").className = document.getElementById("homeNavBar").className.concat(" w3-white");
         return (

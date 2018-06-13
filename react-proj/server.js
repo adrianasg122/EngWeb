@@ -38,8 +38,9 @@ app.post('/ESS/registar', function (req, res) {
   let contacto = req.body.contacto ;
   let password = req.body.password ;
   let plafond = req.body.plafond ;
+  let email = req.body.email;
   /** WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\') */
-  sql = 'INSERT INTO User(username,pname,uname,contact,password,saldo) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+')';
+  sql = 'INSERT IGNORE INTO User(username,pname,uname,contact,password,saldo,email) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+',\''+email+'\')';
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err
@@ -57,7 +58,7 @@ app.get('/ESS/users', function (req, res) {
 
 app.get('/ESS/user', function (req, res) {
   i = 1 ; 
-  connection.query('SELECT * FROM User where id = "' +1+ '"', function (err, results) {
+  connection.query('SELECT * FROM User where username = \'a\'', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));

@@ -8,6 +8,7 @@ class Registo extends Component {
             pnome: '',
             unome: '',
             username: '',
+            email: '',
             plafond: '',
             contacto: '',
             password: '',
@@ -26,6 +27,7 @@ class Registo extends Component {
                 pnome: this.state.data.pnome,
                 unome: this.state.data.unome,
                 username: this.state.data.username,
+                email: this.state.data.email,
                 plafond: this.state.data.plafond,
                 contacto: this.state.data.contacto,
                 password: this.state.data.password,
@@ -35,7 +37,7 @@ class Registo extends Component {
             .then(function () {
                 window.location.replace("/");
             })
-            .then(res => this.setState({response: res}));
+            .then(res => this.setState({ response: res }));
     };
 
 
@@ -46,7 +48,7 @@ class Registo extends Component {
         if (Object.keys(errors).length === 0) {
             this.postApi();
             //window.location.replace("/");
-            
+
         }
     }
     validateData = (data) => {
@@ -183,6 +185,12 @@ class Registo extends Component {
                             <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChange} />
                             <br />
                             {errors.username && <this.inlineError text={errors.username} />}
+                        </div>
+                        <div className="w3-container w3-center w3-padding-8">
+                            <p className="input_desc"> Email </p>
+                            <input className="input" type="text" name="email" id="email" value={data.email} onChange={this.onChange} />
+                            <br />
+                            {errors.email && <this.inlineError text={errors.email} />}
                         </div>
                         <div className="w3-container w3-center w3-padding-8">
                             <p className="input_desc"> Contacto </p>
