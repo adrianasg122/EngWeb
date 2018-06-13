@@ -17,7 +17,10 @@ class Perfil extends Component {
   }
 
   render() {
-
+    if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
+      window.location.replace("/");
+      return null;
+    }
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
     return (
       <div className="Perfil">

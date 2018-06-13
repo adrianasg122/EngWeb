@@ -14,8 +14,12 @@ class Home extends Component {
     }
 
     openContrato(id) {
-        localStorage.setItem("abrirC", id);
-        window.location.replace("/AbrirContrato");
+        if (localStorage.getItem('user')!==null && localStorage.getItem('user')!==undefined) {
+            localStorage.setItem("abrirC", id);
+            window.location.replace("/AbrirContrato");
+        }else {
+            localStorage.removeItem("abrirC");
+        }
     }
 
 
