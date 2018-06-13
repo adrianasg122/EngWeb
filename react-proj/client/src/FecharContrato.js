@@ -5,8 +5,7 @@ class FecharContrato extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      coin: []
+      data: []
     }
   }
 
@@ -14,7 +13,7 @@ class FecharContrato extends Component {
     var pedido = '/ESS/Contrato?id=' + localStorage.getItem("fecharC");
     fetch(pedido)
       .then(res => res.json())
-      .then(res => this.setState({ data: res }));
+      .then(res => this.setState({ data: res[0] }));
 
   }
 
@@ -25,7 +24,8 @@ class FecharContrato extends Component {
         user: localStorage.getItem("user"),
         id: this.state.data.id,
         price: this.state.data.price,
-        quant: this.state.data.quant
+        quant: this.state.data.quant,
+        idCoin: this.state.data.idCoin
       }),
       headers: { "Content-Type": "application/json" }
     })
