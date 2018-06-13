@@ -66,9 +66,11 @@ app.get('/ESS/user', function (req, res) {
 });
 
 
-app.get('/ESS/contratos', function (req, res) {
-  connection.query('SELECT * FROM Contrato', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
+app.get('/ESS/contrato', function (req, res) {
+  console.log(req.body.id)
+  var sql = 'SELECT * FROM Contrato WHERE id=\'' + req.id + '\''
+  console.log(sql)
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send(JSON.stringify(results));
   })
