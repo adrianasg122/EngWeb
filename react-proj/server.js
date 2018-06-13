@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'root',
+  password : '',
   database : 'ESS'
 });
 
@@ -94,7 +94,7 @@ app.get('/ESS/Coin', function (req, res) {
 
 
 app.get('/ESS/contratos', function (req, res) {
-  var sql = 'SELECT * FROM Contrato WHERE idUser=\'' + req.query.username + '\''
+  var sql = 'SELECT * FROM Contrato WHERE idUser=\'' + req.query.username + '\' and concluido=0'
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err
@@ -113,11 +113,13 @@ app.get('/ESS/Contrato', function (req, res) {
 
 app.post('/ESS/addCont', function (req, res) {
   let user = req.body.user ;
-  let id = req.body.id;
+  let id = req.body.id ;
+  let name = req.body.name ;
   let price = req.body.price ;
   let quant = req.body.quant ;
-  let idCoin = req.body.idCoin;
-  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+idCoin+'\',\''+user+'\','+quant+','+price+',0,0)';
+  /**compra -> 0 | venda -> 1 */
+  let venda = req.body.venda;
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+','+venda+',0)';
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err
@@ -126,11 +128,9 @@ app.post('/ESS/addCont', function (req, res) {
 });
 
 app.post('/ESS/fechar', function (req, res) {
-  let user = req.body.user ;
+  console.log(req.body);
   let id = req.body.id ;
-  let price = req.body.price ;
-  let quant = req.body.quant ;
-  sql = 'UPDATE INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (' + id + ',\''+id+'\',\''+user+'\','+quant+','+price+',0,1)';
+  sql = 'UPDATE Contrato SET concluido=1 WHERE id='+ id;
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err
