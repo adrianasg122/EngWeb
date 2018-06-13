@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class HomeList extends Component {
+
   render() {
     return (
       <table className="home-table w3-table-all">
@@ -15,7 +16,7 @@ class HomeList extends Component {
         <tbody>
           {
             this.props.homeFs.map(home => (
-              <tr className='tableHover' key={home.id} onClick={() => this.props.onclick(home.id)}>
+              <tr className='tableHover' key={home.id} onClick={() => this.props.onClick(home.id)}>
                 <td>{home.name}</td>
                 <td>{home.percentageChange}</td>
                 <td>{home.id}</td>

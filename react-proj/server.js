@@ -75,8 +75,11 @@ app.get('/ESS/login', function (req, res) {
 });
 
 
-app.get('/ESS/contratos', function (req, res) {
-  connection.query('SELECT * FROM Contrato', function (err, results) {
+
+app.get('/ESS/Coin', function (req, res) {
+  var sql = 'SELECT * FROM Coin WHERE id=\'' + req.query.id + '\''
+  console.log(sql)
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send(JSON.stringify(results));
   })
