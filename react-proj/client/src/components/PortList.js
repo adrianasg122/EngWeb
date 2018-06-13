@@ -22,7 +22,7 @@ class PortList extends Component {
             <td>{port.coin}</td>
             <td>{port.quantidade}</td>
             <td>{port.valor}</td>
-            <td>{port.askbid}</td>
+            <td>{port.askbid==0?"Compra":"Venda"}</td>
             <td>{port.estado}</td>
             </tr>
           ))

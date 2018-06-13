@@ -42,7 +42,7 @@ class AbrirContrato extends Component {
         body: JSON.stringify({
           user: localStorage.getItem("user"),
           id: this.state.data.id,
-          price: this.state.data.price,
+          price: (document.getElementById("comprarRadioButton").checked?this.state.data.price*1.05:this.state.data.price*0.95),
           quant: this.state.data.quant,
           venda: (document.getElementById("comprarRadioButton").checked?0:1)
         }),
@@ -132,7 +132,7 @@ class AbrirContrato extends Component {
             <div className="row w3-padding-16">
               <div className="col-xs-offset-1 col-xs-9">
                 <button className="botao" type="button" onClick={this.onSubmit}>Confirmar</button>
-                <button className="botao" type="button">Voltar</button>
+                <button className="botao" type="button" onClick={() => window.location.replace("/")}>Voltar</button>
               </div>
             </div>
           </div>
