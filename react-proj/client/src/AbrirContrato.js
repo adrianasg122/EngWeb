@@ -11,24 +11,20 @@ class AbrirContrato extends Component {
   }
 
   componentDidMount() {
-    fetch ('/ESS/contrato?id=' + localStorage.getItem("abrirC"))
-    .then(res => res.json)
-    .then(data => {this.setState({ data: data}),console.log(data)});
+    var pedido ='/ESS/Coin?id=' + localStorage.getItem("abrirC")
+    fetch(pedido)
+      .then(res => res.json)
+      .then(data => { this.setState({ data: data }), console.log(data) });
   }
 
   render() {
     return (
       <div className="AbrirContrato">
-        <h1>Facebook, Inc.</h1>
         <AbrirList abrirFs={this.state.data} />
       </div>
     );
   }
 }
-
-AbrirContrato.prototypes = {
-  idC: PropTypes.any.isRequired,
-};
 
 export default AbrirContrato;
 

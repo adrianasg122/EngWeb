@@ -10,7 +10,7 @@ class abrirList extends Component {
               <b>Sigla:</b>
             </div>
             <div className="col-xs-6 col-md-6">
-              {this.props.abrirFs.map(cont=> (<p> {cont.id} </p>))}
+              {this.props.abrirFs.map(cont => (<p> {cont.id} </p>))}
             </div>
           </div>
           <div className="row">

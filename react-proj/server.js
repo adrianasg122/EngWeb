@@ -66,9 +66,9 @@ app.get('/ESS/user', function (req, res) {
 });
 
 
-app.get('/ESS/contrato', function (req, res) {
+app.get('/ESS/Coin', function (req, res) {
   console.log(req.body.id)
-  var sql = 'SELECT * FROM Contrato WHERE id=\'' + req.id + '\''
+  var sql = 'SELECT * FROM Coin WHERE id=\'' + req.body.id + '\''
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err
