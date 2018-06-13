@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'ESS'
 });
 
@@ -26,23 +26,53 @@ app.get('/ESS', function(req, res, next) {
 
 app.get('/ESS/coins', function (req, res) {
   connection.query('SELECT * FROM Coin', function (err, results) {
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
+app.post('/ESS/registar', function (req, res) {
+  let pname = req.body.pnome ;
+  let uname = req.body.unome ;
+  let username = req.body.username ;
+  let contacto = req.body.contacto ;
+  let password = req.body.password ;
+  let plafond = req.body.plafond ;
+  let email = req.body.email;
+  /** WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\') */
+  sql = 'INSERT IGNORE INTO User(username,pname,uname,contact,password,saldo,email) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+',\''+email+'\')';
+  console.log(sql)
+  connection.query(sql , function (err, results) {
+    if (err) throw err
+    res.send("Added");
+  });
+});
+
+app.get('/ESS/users', function (req, res) {
+  connection.query('SELECT * FROM User', function (err, results) {
     //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
   })
 });
 
-app.get('/ESS/login', function (req, res) {
-    connection.query('SELECT COUNT(id) FROM User WHERE '+req.username+' = username AND '+req.password+' = password', function (err, results) {
-      if (err) throw err
-      if (results === 1)
-        res.send("true");
-      else 
-        res.send("false");
-    
+app.get('/ESS/user', function (req, res) {
+  i = 1 ; 
+  connection.query('SELECT * FROM User where username = \'a\'', function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
   })
 });
 
+
+app.get('/ESS/contratos', function (req, res) {
+  connection.query('SELECT * FROM Contrato', function (err, results) {
+    //console.log("Os resultados são:" + JSON.stringify(results))
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
 
 
 
