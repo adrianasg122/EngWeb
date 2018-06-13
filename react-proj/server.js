@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'root',
+  password : '',
   database : 'ESS'
 });
 
@@ -66,9 +66,10 @@ app.get('/ESS/user', function (req, res) {
 });
 
 
-app.get('/ESS/contratos', function (req, res) {
-  connection.query('SELECT * FROM Contrato', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
+app.get('/ESS/Coin', function (req, res) {
+  var sql = 'SELECT * FROM Coin WHERE id=\'' + req.query.id + '\''
+  console.log(sql)
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send(JSON.stringify(results));
   })
