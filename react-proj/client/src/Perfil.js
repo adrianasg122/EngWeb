@@ -17,6 +17,7 @@ class Perfil extends Component {
   }
 
   render() {
+  
     document.getElementById("perfilNavBar").className = document.getElementById("perfilNavBar").className.concat(" w3-white");
     return (
       <div className="Perfil">

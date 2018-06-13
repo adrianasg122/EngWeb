@@ -6,24 +6,24 @@ class PortList extends Component {
       <table className="port-list w3-table-all">
       <thead>
       <tr>
-          <th>Ativo</th>
-          <th>Preço Compra(€)</th>
-          <th>Unidades adquiridas</th>
-          <th>Total investido(€)</th>
-          <th>Ganho/perda(€)</th>
-          <th>Ganho/perda(%)</th>
+          <th>Id</th>
+          <th>Coin</th>
+          <th>Quantidade</th>
+          <th>Valor Compra(€)</th>
+          <th>Ask/Bid</th>
+          <th>Estado</th>
         </tr>
       </thead>
       <tbody>
         {
           this.props.portFs.map(port => (
             <tr className='tableHover' key={port.id} onClick={() => this.props.onclick(port.id)}>
-            <td>{port.initials}</td>
-            <td>{port.ask}</td>
             <td>{port.id}</td>
-            <td>{port.open}</td>
-            <td>{port.volume}</td>
-            <td>{port.market_cap}</td>
+            <td>{port.coin}</td>
+            <td>{port.quantidade}</td>
+            <td>{port.valor}</td>
+            <td>{port.askbid}</td>
+            <td>{port.estado}</td>
             </tr>
           ))
         }

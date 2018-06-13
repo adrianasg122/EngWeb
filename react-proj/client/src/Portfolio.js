@@ -16,12 +16,11 @@ class Portfolio extends Component {
     for (x in data) {
       const newPort = {
         id: data[x].id,
-        initials: data[x].symbol,
-        ask: data[x].price,
-        units: data[x].id,
-        open: data[x].price,
-        volume: data[x].price,
-        market_cap: data[x].price
+        coin: data[x].idCoin,
+        quantidade: data[x].quant,
+        valor: data[x].price,
+        askbid: data[x].venda,
+        estado: data[x].concluido,
       };
       portfolio = portfolio.concat(newPort);
     }
@@ -32,7 +31,7 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    fetch('/ESS/coins')
+    fetch('/ESS/contratos')
       .then(res => res.json())
       .then(data => this.loadData(data));
     document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");
