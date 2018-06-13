@@ -14,6 +14,7 @@ class AbrirContrato extends Component {
         lastModDate: '',
         quant: ''
       },
+      user: [],
       errors: []
     }
   }
@@ -23,6 +24,9 @@ class AbrirContrato extends Component {
     fetch(pedido)
       .then(res => res.json())
       .then(res => this.setState({ data: res[0] }));
+    fetch('/ESS/user?username=' + localStorage.getItem("user"))
+      .then(res => res.json())
+      .then(res => this.setState({ user: res }))
   }
 
 
@@ -59,6 +63,10 @@ class AbrirContrato extends Component {
   inlineError = ({ text }) => <div className="w3-container w3-center "><span style={{ color: "#ae5856" }}>{text}</span></div>
 
   render() {
+    if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
+      window.location.replace("/");
+      return null;
+    }
     console.log(this.state.data)
     return (
       <div className="AbrirContrato">
@@ -104,7 +112,7 @@ class AbrirContrato extends Component {
                 <b>Saldo:</b>
               </div>
               <div className="col-xs-6">
-                1000€
+              {this.state.user.map(user => (<p> {user.saldo} </p>))}
               </div>
             </div>
             <div className="row w3-padding-16">

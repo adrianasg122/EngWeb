@@ -49,6 +49,11 @@ class Historico extends Component {
   }
 
   render() {
+
+    if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
+      window.location.replace("/");
+      return null;
+    }
     return (
     <div className="Historico">  
       <div className="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
