@@ -53,9 +53,7 @@ class Registo extends Component {
     }
     validateData = (data) => {
         const errors = {};
-        var i;
-        i = 0;
-        var x
+        var x;
         if (!data.pnome) errors.pnome = "Can't be blank";
         if (!data.unome) errors.unome = "Can't be blank";
         if (!data.username) errors.username = "Can't be blank";
@@ -69,18 +67,6 @@ class Registo extends Component {
          * TODO:
          * Validate Existence of User
         */
-        for (x in this.state.users) {
-            if (this.state.users[x].username === data.username) {
-                errors.username = "Username already registed";
-                break;
-            }
-            else if (data.password !== data.password2) {
-                errors.password = "Passwords don't match";
-                errors.password2 = "Passwords don't match";
-            }
-            else
-                i++;
-        }
         return errors;
     }
 

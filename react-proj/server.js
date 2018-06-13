@@ -50,7 +50,6 @@ app.post('/ESS/registar', function (req, res) {
 
 app.get('/ESS/users', function (req, res) {
   connection.query('SELECT * FROM User', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
   })
@@ -59,11 +58,22 @@ app.get('/ESS/users', function (req, res) {
 app.get('/ESS/user', function (req, res) {
   i = 1 ; 
   connection.query('SELECT * FROM User where username = \'a\'', function (err, results) {
-    //console.log("Os resultados são:" + JSON.stringify(results))
     if (err) throw err
     res.send(JSON.stringify(results));
   })
 });
+
+app.get('/ESS/login', function (req, res) {
+  i = 1 ; 
+  sql = 'SELECT COUNT(username) AS \'exists\' FROM User WHERE username =\''+req.query.username+'\' AND password= \''+req.query.password+'\'';
+  console.log(sql)
+  connection.query(sql, function (err, results) {
+
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
 
 
 app.get('/ESS/Coin', function (req, res) {

@@ -7,32 +7,33 @@ class Login extends Component {
             username: '',
             password: '',
         },
-        logged: false,
+        logged: 0,
         errors: {},
     }
 
 
 
-    onChangeU = e => this.setState( {data: { ...this.state.data, username: e.target.value}})
-    onChangeP = e => this.setState({ data: { ...this.state.data, password: e.target.value }})
+    onChangeU = e => this.setState({ data: { ...this.state.data, username: e.target.value } })
+    onChangeP = e => this.setState({ data: { ...this.state.data, password: e.target.value } })
 
     onSubmit = () => {
         const errors = this.validateData(this.state.data);
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
-
             fetch('/ESS/login?username=' + this.state.data.username + '&password=' + this.state.data.password)
                 .then(res => res.json())
-                .then(res => this.setState({ logged: res }));
-
-            window.location.replace("/");
+                .then(res => {
+                    var log = res[0].exists;
+                    if (log === 1) {
+                        localStorage.setItem("user", this.state.data.username);
+                        this.setState({ logged: log });
+                        window.location.replace("/");
+                    }
+                });
         }
     }
     validateData = (data) => {
         const errors = {};
-        var i;
-        i = 0;
-        var x
         if (!data.username) errors.username = "Can't be blank";
         if (!data.password) errors.password = "Can't be blank";
 
