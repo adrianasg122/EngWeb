@@ -63,7 +63,8 @@ app.get('/ESS/users', function (req, res) {
 
 app.get('/ESS/user', function (req, res) {
   i = 1 ; 
-  connection.query('SELECT * FROM User where username = \'a\'', function (err, results) {
+  console.log('SELECT * FROM User where username = \'' + req.query.username + '\'')
+  connection.query('SELECT * FROM User where username = \'' + req.query.username + '\'', function (err, results) {
     if (err) throw err
     res.send(JSON.stringify(results));
   })

@@ -13,7 +13,8 @@ class AbrirContrato extends Component {
         percentageChange: '',
         lastModDate: '',
         quant: ''
-      }
+      },
+      errors: []
     }
   }
 
@@ -28,22 +29,34 @@ class AbrirContrato extends Component {
   onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
 
   onSubmit = () => {
-    fetch('/ESS/addCont', {
-      method: 'POST',
-      body: JSON.stringify({
+    const errors = this.validateData(this.state.data);
+    this.setState({ errors });
+    if (Object.keys(errors).length === 0) {
+      fetch('/ESS/addCont', {
+        method: 'POST',
+        body: JSON.stringify({
           user: localStorage.getItem("user"),
           id: this.state.data.id,
           price: this.state.data.price,
           quant: this.state.data.quant
-      }),
-      headers: { "Content-Type": "application/json" }
-  })
-      .then(function () {
-          window.location.replace("/");
+        }),
+        headers: { "Content-Type": "application/json" }
       })
-      .then(res => this.setState({ response: res }));
-
+        .then(function () {
+          window.location.replace("/");
+        })
+        .then(res => this.setState({ response: res }));
+    }
   }
+  validateData = (data) => {
+    const errors = {};
+    var x;
+    if (!data.quant) errors.quant = "Can't be blank";
+    if (isNaN(data.quant)) errors.quant = "Must be a valid number";
+    return errors;
+  }
+
+  inlineError = ({ text }) => <div className="w3-container w3-center "><span style={{ color: "#ae5856" }}>{text}</span></div>
 
   render() {
     console.log(this.state.data)
