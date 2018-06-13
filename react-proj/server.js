@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'root',
+  password : '',
   database : 'ESS'
 });
 
@@ -65,9 +65,10 @@ app.get('/ESS/user', function (req, res) {
 
 app.get('/ESS/login', function (req, res) {
   i = 1 ; 
-  sql = 'SELECT COUNT(username) FROM User WHERE username =\''+req.username+'\' AND password= \''+req.password+'\'';
+  sql = 'SELECT COUNT(username) AS \'exists\' FROM User WHERE username =\''+req.query.username+'\' AND password= \''+req.query.password+'\'';
   console.log(sql)
   connection.query(sql, function (err, results) {
+
     if (err) throw err
     res.send(JSON.stringify(results));
   })
