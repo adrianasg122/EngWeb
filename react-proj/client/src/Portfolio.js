@@ -31,7 +31,7 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    fetch('/ESS/contratos')
+    fetch('/ESS/contratos?username='+ localStorage.getItem("user"))
       .then(res => res.json())
       .then(data => this.loadData(data));
     document.getElementById("portfolioNavBar").className = document.getElementById("portfolioNavBar").className.concat(" w3-white");

@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '',
+  password : 'root',
   database : 'ESS'
 });
 
@@ -85,6 +85,15 @@ app.get('/ESS/Coin', function (req, res) {
   })
 });
 
+
+app.get('/ESS/contratos', function (req, res) {
+  var sql = 'SELECT * FROM Contrato WHERE idUser=\'' + req.query.username + '\''
+  console.log(sql)
+  connection.query(sql, function (err, results) {
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
