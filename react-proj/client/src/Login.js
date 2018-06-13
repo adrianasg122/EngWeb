@@ -7,7 +7,7 @@ class Login extends Component {
             username: '',
             password: '',
         },
-        logged: false,
+        logged: 0,
         errors: {},
     }
 
@@ -24,8 +24,13 @@ class Login extends Component {
             fetch('/ESS/login?username=' + this.state.data.username + '&password=' + this.state.data.password)
                 .then(res => res.json())
                 .then(res => this.setState({ logged: res }));
-
-            window.location.replace("/");
+            
+            if (this.state.logged === 1){
+                localStorage.setItem("user", this.state.data.username);
+                //window.location.replace("/");
+            }
+            console.log(localStorage.user)
+    
         }
     }
     validateData = (data) => {
