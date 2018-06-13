@@ -6,7 +6,6 @@ class Portfolio extends Component {
     super(props);
     this.state = {
       portfolioL: [],
-      portFCounter: 0
     }
   }
 
@@ -41,12 +40,19 @@ class Portfolio extends Component {
     console.log(id);
   }
 
+
+  fecharContrato(id) {
+    localStorage.setItem("fecharC", id);
+    window.location.replace("/FecharContrato");
+}
+
+
   render() {
     return (
       <div className="Portfolio">  
         <div className="w3-container col-xs-12 col-md-offset-1 col-md-10 w3-padding-16">
           <h1 className="titulo"> Portfólio </h1>
-          <PortList portFs={this.state.portfolioL} onclick={(id) => this.openPortF(id)}/>
+          <PortList portFs={this.state.portfolioL} onclick={(id) => this.fecharContrato(id)}/>
         </div>
       </div>
     );

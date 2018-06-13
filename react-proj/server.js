@@ -102,14 +102,34 @@ app.get('/ESS/contratos', function (req, res) {
   })
 });
 
+app.get('/ESS/Contrato', function (req, res) {
+  var sql = 'SELECT * FROM Contrato WHERE id=' + req.query.id
+  console.log(sql)
+  connection.query(sql, function (err, results) {
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
 
 app.post('/ESS/addCont', function (req, res) {
   let user = req.body.user ;
-  let id = req.body.id ;
-  let name = req.body.name ;
+  let id = req.body.idCoin;
   let price = req.body.price ;
   let quant = req.body.quant ;
   sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+',0,0)';
+  console.log(sql)
+  connection.query(sql , function (err, results) {
+    if (err) throw err
+    res.send("Added");
+  });
+});
+
+app.post('/ESS/fechar', function (req, res) {
+  let user = req.body.user ;
+  let id = req.body.id ;
+  let price = req.body.price ;
+  let quant = req.body.quant ;
+  sql = 'UPDATE INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (id,\''+id+'\',\''+user+'\','+quant+','+price+',0,1)';
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err

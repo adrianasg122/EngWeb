@@ -2,36 +2,60 @@ import React, { Component } from 'react';
 
 
 class FecharContrato extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      coin: []
+    }
+  }
+
+  componentDidMount() {
+    var pedido = '/ESS/Contrato?id=' + localStorage.getItem("fecharC");
+    fetch(pedido)
+      .then(res => res.json())
+      .then(res => this.setState({ data: res }));
+
+  }
+
+  confirm() {
+    fetch('/ESS/fechar', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: localStorage.getItem("user"),
+        id: this.state.data.id,
+        price: this.state.data.price,
+        quant: this.state.data.quant
+      }),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(function () {
+        window.location.replace("/");
+      })
+      .then(res => this.setState({ response: res }));
+  }
 
   render() {
     return (
       <div className="FecharContrato">
         <div className="row">
           <div className="col-xs-12 col-md-6">
-            <h1 className="titulo w3-padding-16">Contrato #123</h1>
+            <h1 className="titulo w3-padding-16">Contrato {this.state.data.map(contrato => (contrato.idCoin))} </h1>
             <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-              <div className="row w3-padding-16">
+              <div className="row contrato">
                 <div className="col-xs-6 col-md-6">
-                  <b>Sigla:</b>
+                  <b>Nome ativo:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  FB
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-xs-6 col-md-6">
-                  <b>Empresa:</b>
-                </div>
-                <div className="col-xs-6 col-md-6">
-                  Facebook, Inc
+                  {this.state.data.map(contrato => (<p> {contrato.idCoin} </p>))}
                 </div>
               </div>
               <div className="row w3-padding-16">
                 <div className="col-xs-6 col-md-6">
-                  <b>Tipo:</b>
+                  <b>Tipo*:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  Buy
+                  {this.state.data.map(contrato => contrato.venda)}
                 </div>
               </div>
               <div className="row">
@@ -39,33 +63,18 @@ class FecharContrato extends Component {
                   <b>Valor:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  164.75
+                  {this.state.data.map(contrato => (<p> {contrato.price} $ </p>))}
                 </div>
               </div>
               <div className="row w3-padding-16">
                 <div className="col-xs-6 col-md-6">
-                  <b>Investido:</b>
+                  <b>Quantidade:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  900€
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-xs-6 col-md-6">
-                  <b>Data:</b>
-                </div>
-                <div className="col-xs-6 col-md-6">
-                  12-12-2017
-              </div>
-              </div>
-              <div className="row w3-padding-16">
-                <div className="col-xs-6 col-md-6">
-                  <b>Lucro:</b>
-                </div>
-                <div className="col-xs-6 col-md-6">
-                  -120€
+                  {this.state.data.map(contrato => (<p> {contrato.quant} </p>))}
                 </div>
               </div>
+              <p>*Venda(1)\Compra(0)</p>
             </div>
           </div>
           <div className="col-xs-12 col-md-6">
@@ -139,7 +148,7 @@ class FecharContrato extends Component {
           </div>
           <div className="row col-xs-offset-2">
             <div className="col-xs-4 ">
-              <button className="botao" type="button">Fechar Contrato</button>
+              <button className="botao" type="button" onClick={this.confirm()}>Fechar Contrato</button>
               <button className="botao" type="button">Voltar</button>
             </div>
           </div>

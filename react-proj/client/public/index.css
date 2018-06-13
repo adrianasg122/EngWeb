@@ -68,6 +68,10 @@ var pStyle2 {
   font-size: 13px;
 }
 
+.contrato{
+  padding-top: 50px
+}
+
 .AbrirContrato {
   padding-top: 10px;
 }
