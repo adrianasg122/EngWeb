@@ -109,7 +109,9 @@ app.post('/ESS/addCont', function (req, res) {
   let name = req.body.name ;
   let price = req.body.price ;
   let quant = req.body.quant ;
-  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+',0,0)';
+  /**compra -> 0 | venda -> 1 */
+  let venda = req.body.venda;
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+','+venda+',0)';
   console.log(sql)
   connection.query(sql , function (err, results) {
     if (err) throw err

@@ -20,6 +20,7 @@ class AbrirContrato extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("comprarRadioButton").checked = true;
     var pedido = '/ESS/Coin?id=' + localStorage.getItem("abrirC");
     fetch(pedido)
       .then(res => res.json())
@@ -42,7 +43,8 @@ class AbrirContrato extends Component {
           user: localStorage.getItem("user"),
           id: this.state.data.id,
           price: this.state.data.price,
-          quant: this.state.data.quant
+          quant: this.state.data.quant,
+          venda: (document.getElementById("comprarRadioButton").checked?0:1)
         }),
         headers: { "Content-Type": "application/json" }
       })
@@ -67,7 +69,6 @@ class AbrirContrato extends Component {
       window.location.replace("/");
       return null;
     }
-    console.log(this.state.data)
     return (
       <div className="AbrirContrato">
         <h1> {this.state.data.name}</h1>
@@ -121,10 +122,10 @@ class AbrirContrato extends Component {
             <div className="row">
               <form action="">
                 <div className="col-xs-6">
-                  <input type="radio" name="comprarVender" value="comprar" /> Comprar
+                  <input id="comprarRadioButton" type="radio" name="comprarVender" /> Comprar
               </div>
                 <div className="col-xs-6">
-                  <input type="radio" name="comprarVender" value="vender" /> Vender
+                  <input id="venderRadioButton" type="radio" name="comprarVender" /> Vender
               </div>
               </form>
             </div>
