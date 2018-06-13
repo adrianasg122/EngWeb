@@ -22,7 +22,7 @@ class FecharContrato extends Component {
       method: 'POST',
       body: JSON.stringify({
         user: localStorage.getItem("user"),
-        id: this.state.data.id,
+        id: localStorage.getItem("fecharC"),
         price: this.state.data.price,
         quant: this.state.data.quant,
         idCoin: this.state.data.idCoin

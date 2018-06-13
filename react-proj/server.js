@@ -138,5 +138,15 @@ app.post('/ESS/fechar', function (req, res) {
   });
 });
 
+app.get('/ESS/hist', function (req, res) {
+  var sql = 'SELECT * FROM Contrato WHERE idUser=\'' + req.query.username + '\' AND concluido = 1'
+  console.log(sql)
+  connection.query(sql, function (err, results) {
+    if (err) throw err
+    res.send(JSON.stringify(results));
+  })
+});
+
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
