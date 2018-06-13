@@ -50,7 +50,7 @@ ENGINE = InnoDB;
 -- Table `ess`.`Contrato`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ess`.`Contrato` (
-  `id` INT(11) NOT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idCoin` VARCHAR(50) NOT NULL,
   `idUser` VARCHAR(20) NOT NULL,
   `quant` INT(11) NOT NULL,
@@ -66,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `ess`.`Contrato` (
   CONSTRAINT `isUser`
     FOREIGN KEY (`idUser`)
     REFERENCES `ess`.`User` (`username`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 6;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
