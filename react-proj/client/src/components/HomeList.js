@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
 class HomeList extends Component {
-  openContrato(id) {
-    localStorage.setItem("abrirC", id);
-    window.location.replace("/AbrirContrato");
-  }
-
 
   render() {
     return (
@@ -21,7 +16,7 @@ class HomeList extends Component {
         <tbody>
           {
             this.props.homeFs.map(home => (
-              <tr className='tableHover' key={home.id} onClick={() => this.openContrato(home.id)}>
+              <tr className='tableHover' key={home.id} onClick={() => this.props.onClick(home.id)}>
                 <td>{home.name}</td>
                 <td>{home.percentageChange}</td>
                 <td>{home.id}</td>

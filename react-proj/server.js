@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'root',
+  password : '',
   database : 'ESS'
 });
 
@@ -67,8 +67,7 @@ app.get('/ESS/user', function (req, res) {
 
 
 app.get('/ESS/Coin', function (req, res) {
-  console.log(req.body.id)
-  var sql = 'SELECT * FROM Coin WHERE id=\'' + req.body.id + '\''
+  var sql = 'SELECT * FROM Coin WHERE id=\'' + req.query.id + '\''
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err

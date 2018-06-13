@@ -13,6 +13,11 @@ class Home extends Component {
             .then(data => this.setState({ data: data }));
     }
 
+    openContrato(id) {
+        localStorage.setItem("abrirC", id);
+        window.location.replace("/AbrirContrato");
+    }
+
 
     openTab(name) {
         var i, x, tablinks;
@@ -56,7 +61,7 @@ class Home extends Component {
                     </div>
                     <div id="Acao" className="tabcontent w3-container">
                         <h2 id="ComodAcao" className="titulo w3-padding-32"> Ações</h2>
-                        <HomeList homeFs={this.state.data} onClick={(id) => this.open(id)} />
+                        <HomeList homeFs={this.state.data} onClick={(id) => this.openContrato(id)} />
                     </div>
                 </div>
             </div>
