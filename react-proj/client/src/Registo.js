@@ -23,8 +23,8 @@ class Registo extends Component {
         fetch('/ESS/registar', {
             method: 'POST',
             body: JSON.stringify({
-                pnome: this.state.data.unome,
-                unome: this.state.data.pnome,
+                pnome: this.state.data.pnome,
+                unome: this.state.data.unome,
                 username: this.state.data.username,
                 plafond: this.state.data.plafond,
                 contacto: this.state.data.contacto,
@@ -32,8 +32,8 @@ class Registo extends Component {
             }),
             headers: { "Content-Type": "application/json" }
         })
-            .then(function (response) {
-                return response.json()
+            .then(function () {
+                window.location.replace("/");
             })
             .then(res => this.setState({response: res}));
     };
