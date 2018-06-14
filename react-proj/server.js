@@ -9,22 +9,20 @@ const port = process.env.PORT || 5000;
 var mysql = require('mysql')
 var array;
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'ESS'
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'ESS'
 });
 
+var spawn = require("child_process").spawn;
+spawn('python', ["bd.py"]);
 
-connection.connect(function(err) {
+
+connection.connect(function (err) {
   if (err) throw err
   console.log('You are now connected...')
 })
-
-
-app.get('/ESS', function(req, res, next) {
-  var id = 1;
-});
 
 
 app.get('/ESS/coins', function (req, res) {
@@ -36,17 +34,17 @@ app.get('/ESS/coins', function (req, res) {
 
 
 app.post('/ESS/registar', function (req, res) {
-  let pname = req.body.pnome ;
-  let uname = req.body.unome ;
-  let username = req.body.username ;
-  let contacto = req.body.contacto ;
-  let password = req.body.password ;
-  let plafond = req.body.plafond ;
+  let pname = req.body.pnome;
+  let uname = req.body.unome;
+  let username = req.body.username;
+  let contacto = req.body.contacto;
+  let password = req.body.password;
+  let plafond = req.body.plafond;
   let email = req.body.email;
   /** WHERE NOT EXISTS (SELECT username FROM User WHERE username = \'' + username + '\') */
-  sql = 'INSERT IGNORE INTO User(username,pname,uname,contact,password,saldo,email) values (\''+username+'\',\''+pname+'\',\''+uname+'\','+contacto+',\''+password+'\','+plafond+',\''+email+'\')';
+  sql = 'INSERT IGNORE INTO User(username,pname,uname,contact,password,saldo,email) values (\'' + username + '\',\'' + pname + '\',\'' + uname + '\',' + contacto + ',\'' + password + '\',' + plafond + ',\'' + email + '\')';
   console.log(sql)
-  connection.query(sql , function (err, results) {
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send("Added");
   });
@@ -62,7 +60,7 @@ app.get('/ESS/users', function (req, res) {
 
 
 app.get('/ESS/user', function (req, res) {
-  i = 1 ; 
+  i = 1;
   console.log('SELECT * FROM User where username = \'' + req.query.username + '\'')
   connection.query('SELECT * FROM User where username = \'' + req.query.username + '\'', function (err, results) {
     if (err) throw err
@@ -72,8 +70,8 @@ app.get('/ESS/user', function (req, res) {
 
 
 app.get('/ESS/login', function (req, res) {
-  i = 1 ; 
-  sql = 'SELECT COUNT(username) AS \'exists\' FROM User WHERE username =\''+req.query.username+'\' AND password= \''+req.query.password+'\'';
+  i = 1;
+  sql = 'SELECT COUNT(username) AS \'exists\' FROM User WHERE username =\'' + req.query.username + '\' AND password= \'' + req.query.password + '\'';
   console.log(sql)
   connection.query(sql, function (err, results) {
 
@@ -112,16 +110,16 @@ app.get('/ESS/Contrato', function (req, res) {
 });
 
 app.post('/ESS/addCont', function (req, res) {
-  let user = req.body.user ;
-  let id = req.body.id ;
-  let name = req.body.name ;
-  let price = req.body.price ;
-  let quant = req.body.quant ;
+  let user = req.body.user;
+  let id = req.body.id;
+  let name = req.body.name;
+  let price = req.body.price;
+  let quant = req.body.quant;
   /**compra -> 0 | venda -> 1 */
   let venda = req.body.venda;
-  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\''+id+'\',\''+user+'\','+quant+','+price+','+venda+',0)';
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\'' + id + '\',\'' + user + '\',' + quant + ',' + price + ',' + venda + ',0)';
   console.log(sql)
-  connection.query(sql , function (err, results) {
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send("Added");
   });
@@ -129,10 +127,10 @@ app.post('/ESS/addCont', function (req, res) {
 
 app.post('/ESS/fechar', function (req, res) {
   console.log(req.body);
-  let id = req.body.id ;
-  sql = 'UPDATE Contrato SET concluido=1 WHERE id='+ id;
+  let id = req.body.id;
+  sql = 'UPDATE Contrato SET concluido=1 WHERE id=' + id;
   console.log(sql)
-  connection.query(sql , function (err, results) {
+  connection.query(sql, function (err, results) {
     if (err) throw err
     res.send("Added");
   });

@@ -21,18 +21,11 @@ class FecharContrato extends Component {
       method: 'POST',
       body: JSON.stringify({
         user: localStorage.getItem("user"),
-<<<<<<< HEAD
-        id: localStorage.getItem("fecharC"),
-        price: this.state.data.price,
-        quant: this.state.data.quant,
-        idCoin: this.state.data.idCoin
-=======
         id: this.state.data.map(contrato => (contrato.id)),
         price: this.state.data.map(contrato => (contrato.price)),
         quant: this.state.data.map(contrato => (contrato.quant)),
         idCoin: this.state.data.map(contrato => (contrato.idCoin)),
         venda: this.state.data.map(contrato => (contrato.venda))
->>>>>>> 272d5141e0c0262d24f13963af7b279ad6e8e595
       }),
       headers: { "Content-Type": "application/json" }
     })
