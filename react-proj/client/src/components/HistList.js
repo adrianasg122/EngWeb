@@ -6,7 +6,10 @@ class PortList extends Component {
       <table className="port-list w3-table-all">
       <thead><tr>
         <th>Ativo</th>
-        <th>Preço</th>
+        <th>Preço Abertura</th>
+        <th>Preço Fecho</th>
+        <th>Data Abertura</th>
+        <th>Data Fecho</th>
         <th>Tipo</th>
         <th>Quantidade</th>
         </tr>
@@ -16,8 +19,11 @@ class PortList extends Component {
           this.props.portFs.map(port => (
             <tr className='tableHover' key={port.id}>
             <td>{port.coin}</td>
-            <td>{port.valor}</td>
-            <td>{port.tipo}</td>
+            <td>{port.precoA}</td>
+            <td>{port.precoF}</td>
+            <td>{port.dataA}</td>
+            <td>{port.dataF}</td>
+            <td>{port.tipo === 0?"Compra":"Venda"}</td>
             <td>{port.quantidade}</td>
             </tr>
           ))

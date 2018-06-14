@@ -6,12 +6,12 @@ class PortList extends Component {
       <table className="port-list w3-table-all">
       <thead>
       <tr>
-          <th>Id</th>
-          <th>Coin</th>
+          <th>Id contrato</th>
+          <th>Nome</th>
           <th>Quantidade</th>
-          <th>Valor Compra(€)</th>
-          <th>Ask/Bid</th>
-          <th>Estado</th>
+          <th>Preço abertura</th>
+          <th>Data abertura</th>
+          <th>Tipo</th>
         </tr>
       </thead>
       <tbody>
@@ -21,9 +21,9 @@ class PortList extends Component {
             <td>{port.id}</td>
             <td>{port.coin}</td>
             <td>{port.quantidade}</td>
-            <td>{port.valor}</td>
-            <td>{port.askbid===0?"Compra":"Venda"}</td>
-            <td>{port.estado}</td>
+            <td>{port.precoA}</td>
+            <td>{port.dataA}</td>
+            <td>{port.tipo===0?"Compra":"Venda"}</td>
             </tr>
           ))
         }
