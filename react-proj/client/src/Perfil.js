@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PerfilList from './components/PerfilList';
 
 class Perfil extends Component {
   constructor(props) {

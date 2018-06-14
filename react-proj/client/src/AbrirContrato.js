@@ -56,7 +56,6 @@ class AbrirContrato extends Component {
   }
   validateData = (data) => {
     const errors = {};
-    var x;
     if (!data.quant) errors.quant = "Can't be blank";
     if (isNaN(data.quant)) errors.quant = "Must be a valid number";
     return errors;

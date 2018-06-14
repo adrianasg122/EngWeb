@@ -57,10 +57,10 @@ class FecharContrato extends Component {
               </div>
               <div className="row w3-padding-16">
                 <div className="col-xs-6 col-md-6">
-                  <b>Tipo*:</b>
+                  <b>Tipo:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  {this.state.data.map(contrato => contrato.venda)==1?"Venda":"Compra"}
+                  {this.state.data.map(contrato => contrato.venda)===1?"Venda":"Compra"}
                 </div>
               </div>
               <div className="row">
@@ -79,7 +79,6 @@ class FecharContrato extends Component {
                   {this.state.data.map(contrato => (<p> {contrato.quant} </p>))}
                 </div>
               </div>
-              <p>*Venda(1)\Compra(0)</p>
             </div>
           </div>
           <div className="col-xs-12 col-md-6">
