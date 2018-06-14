@@ -44,6 +44,23 @@ class Home extends Component {
         });
     }
 
+    resolveAfter1Seconds() {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve('resolved');
+          }, 1000);
+        });
+      }
+      
+      async backG() {
+        while(true) {
+            await this.resolveAfter1Seconds();
+        fetch('/ESS/coins')
+        .then(res => res.json())
+        .then(data => this.setState({ data: data }));
+        }
+      }
+
     componentDidMount() {
         if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
             document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.concat(" w3-hide");
@@ -63,6 +80,9 @@ class Home extends Component {
                 .then(res => res.json())
                 .then(res => this.loadData(res));
         }
+
+          
+        this.backG();
     }
 
     openContrato(id) {
