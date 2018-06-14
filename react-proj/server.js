@@ -46,7 +46,8 @@ app.post('/ESS/registar', function (req, res) {
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err
-    res.send("Added");
+    console.log(results.affectedRows)
+    res.send(JSON.stringify({uservalid: results.affectedRows}));
   });
 });
 
