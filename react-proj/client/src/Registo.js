@@ -67,10 +67,8 @@ class Registo extends Component {
         if (isNaN(data.contacto)) errors.contacto = "Must be a valid number";
         if (!data.password) errors.password = "Can't be blank";
         if (!data.password2) errors.password2 = "Can't be blank";
-        /**
-         * TODO:
-         * Validate Existence of User
-        */
+
+
         return errors;
     }
 
@@ -79,53 +77,69 @@ class Registo extends Component {
     render() {
         const { data, errors } = this.state
         return (
-            <div className="Login">
+            <div className="Registo">
                 <div className="w3-container w3-padding-8">
                     <form>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Primeiro Nome </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Primeiro Nome </b>
+                            </div>
                             <input className="input" type="text" name="pnome" id="pnome" value={data.pnome} onChange={this.onChange} />
                             <br />
                             {errors.pnome && <this.inlineError text={errors.pnome} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Ultimo Nome </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Ultimo Nome </b>
+                            </div>
                             <input className="input" type="text" name="unome" id="unome" value={data.unome} onChange={this.onChange} />
                             <br />
                             {errors.unome && <this.inlineError text={errors.unome} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Username </p>
+                        <div className="w3-container w3-center">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Username </b>
+                            </div>
                             <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChange} />
                             <br />
                             {errors.username && <this.inlineError text={errors.username} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Email </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Email </b>
+                            </div>
                             <input className="input" type="text" name="email" id="email" value={data.email} onChange={this.onChange} />
                             <br />
                             {errors.email && <this.inlineError text={errors.email} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Contacto </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Contacto </b>
+                            </div>
                             <input className="input" type="text" name="contacto" id="contacto" value={data.contacto} onChange={this.onChange} />
                             <br />
                             {errors.contacto && <this.inlineError text={errors.contacto} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Plafond Inicial </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Plafond Inicial </b>
+                            </div>
                             <input className="input" type="text" name="plafond" id="plafond" value={data.plafond} onChange={this.onChange} />
                             <br />
                             {errors.plafond && <this.inlineError text={errors.plafond} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc"> Password </p>
+                        <div className="w3-container w3-center ">
+                            <div className="w3-padding-16">
+                                <b className="input_desc"> Password </b>
+                            </div>
                             <input className="input" type="password" name="password" id="password" value={data.password} onChange={this.onChange} />
                             <br />
                             {errors.password && <this.inlineError text={errors.password} />}
                         </div>
-                        <div className="w3-container w3-center w3-padding-8">
-                            <p className="input_desc">  Confirmar Password </p>
+                        <div className="w3-container w3-center">
+                            <div className="w3-padding-16">
+                                <b className="input_desc">  Confirmar Password </b>
+                            </div>
                             <input className="input" type="password" name="password2" id="password2" value={data.password2} onChange={this.onChange} />
                             <br />
                             {errors.password2 && <this.inlineError text={errors.password2} />}
