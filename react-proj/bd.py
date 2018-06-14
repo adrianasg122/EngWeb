@@ -20,11 +20,6 @@ def getCoinsDB():
     return coinListDB
 
 
-def listCoin():
-    for (id,symbol) in coinList:
-        print (symbol)
-
-
 
 def background():
     conn.commit()
