@@ -20,7 +20,6 @@ class Registo extends Component {
 
 
     postApi() {
-        console.log(this.state.data);
         fetch('/ESS/registar', {
             method: 'POST',
             body: JSON.stringify({
@@ -34,10 +33,17 @@ class Registo extends Component {
             }),
             headers: { "Content-Type": "application/json" }
         })
-            .then(function () {
+        .then(res => res.json())
+        .then((res) => {
+            if (res.uservalid!=0) {
                 window.location.replace("/");
-            })
-            .then(res => this.setState({ response: res }));
+            }
+            else {
+                const errors = {};
+                errors.username = "username already exists";
+                this.setState({ errors });
+            }
+        });
     };
 
 
@@ -47,7 +53,6 @@ class Registo extends Component {
         this.setState({ errors });
         if (Object.keys(errors).length === 0) {
             this.postApi();
-            //window.location.replace("/");
 
         }
     }
