@@ -35,11 +35,9 @@ def background():
             qname = reqJson[i]["name"]
             qsymbol = reqJson[i]["symbol"]
             qprice = reqJson[i]["price_usd"]
-            qask= reqJson[i]["price_usd"]
-            qbid= reqJson[i]["price_usd"] 
             qperc = reqJson[i]["percent_change_1h"]
             qlastMod = reqJson[i]["last_updated"] 
-            cursor.execute("REPLACE INTO Coin values (%s,%s,%s,%s,%s,%s,%s,%s)", (qid, qname, qsymbol, qprice, qperc, qlastMod,qask,qbid))
+            cursor.execute("REPLACE INTO Coin values (%s,%s,%s,%s,%s,%s)", (qid, qname, qsymbol, qprice, qperc, qlastMod))
             i+=1
             conn.commit()
         coinList = getCoinsDB()

@@ -19,8 +19,8 @@ class HomeList extends Component {
               <tr className='tableHover' key={home.id} onClick={() => this.props.onClick(home.id)}>
                 <td>{home.name}</td>
                 <td>{home.percentageChange}</td>
-                <td>{home.id}</td>
-                <td>{home.price}</td>
+                <td>{home.price*0.95}</td>
+                <td>{home.price*1.05}</td>
               </tr>
             ))
           }
