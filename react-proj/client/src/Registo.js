@@ -53,7 +53,6 @@ class Registo extends Component {
     }
     validateData = (data) => {
         const errors = {};
-        var x;
         if (!data.pnome) errors.pnome = "Can't be blank";
         if (!data.unome) errors.unome = "Can't be blank";
         if (!data.username) errors.username = "Can't be blank";
@@ -72,82 +71,6 @@ class Registo extends Component {
 
     inlineError = ({ text }) => <div className="w3-container w3-center "><span style={{ color: "#ae5856" }}>{text}</span></div>
 
-
-    /*
-        render() {
-            return (
-                <div className="Registo">
-                    <div className="row w3-padding-32">
-                        <form onSubmit={this.handleSignIn.bind(this)}>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc ">Primeiro Nome:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="pnome" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Último Nome:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="unome" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Username:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="username" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Contacto:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="contacto" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Plafond Inicial</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="plafond" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Password:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="password" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-16">
-                                <div className="col-sm-offset-4 col-sm-2 col-md-2">
-                                    <b className="input_desc">Confirmar password:</b>
-                                </div>
-                                <div className="col-sm-2 col-md-2">
-                                    <input className="input" type="text" ref="passwordC" />
-                                </div>
-                            </div>
-                            <div className="row w3-padding-32">
-                                <div className="w3-center">
-                                    <a className="botao" href="/">Voltar</a>
-                                    <a className="botao" onClick={this.handleSignIn.bind(this)}>Registar</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            );
-        }
-    }
-    */
     render() {
         const { data, errors } = this.state
         return (

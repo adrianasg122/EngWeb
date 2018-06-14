@@ -21,18 +21,11 @@ class FecharContrato extends Component {
       method: 'POST',
       body: JSON.stringify({
         user: localStorage.getItem("user"),
-<<<<<<< HEAD
-        id: localStorage.getItem("fecharC"),
-        price: this.state.data.price,
-        quant: this.state.data.quant,
-        idCoin: this.state.data.idCoin
-=======
         id: this.state.data.map(contrato => (contrato.id)),
         price: this.state.data.map(contrato => (contrato.price)),
         quant: this.state.data.map(contrato => (contrato.quant)),
         idCoin: this.state.data.map(contrato => (contrato.idCoin)),
         venda: this.state.data.map(contrato => (contrato.venda))
->>>>>>> 272d5141e0c0262d24f13963af7b279ad6e8e595
       }),
       headers: { "Content-Type": "application/json" }
     })
@@ -64,10 +57,10 @@ class FecharContrato extends Component {
               </div>
               <div className="row w3-padding-16">
                 <div className="col-xs-6 col-md-6">
-                  <b>Tipo*:</b>
+                  <b>Tipo:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  {this.state.data.map(contrato => contrato.venda)==1?"Venda":"Compra"}
+                  {this.state.data.map(contrato => contrato.venda)===1?"Venda":"Compra"}
                 </div>
               </div>
               <div className="row">
@@ -86,7 +79,6 @@ class FecharContrato extends Component {
                   {this.state.data.map(contrato => (<p> {contrato.quant} </p>))}
                 </div>
               </div>
-              <p>*Venda(1)\Compra(0)</p>
             </div>
           </div>
           <div className="col-xs-12 col-md-6">
