@@ -56,8 +56,10 @@ class AbrirContrato extends Component {
   }
   validateData = (data) => {
     const errors = {};
+    var saldo = this.state.user[0].saldo;
     if (!data.quant) errors.quant = "Can't be blank";
-    if (isNaN(data.quant)) errors.quant = "Must be a valid number";
+    else if (isNaN(data.quant)) errors.quant = "Must be a valid number";
+    else if (data.quant > saldo) errors.quant = "Saldo insuficiente";
     return errors;
   }
 
@@ -116,7 +118,11 @@ class AbrirContrato extends Component {
               </div>
             </div>
             <div className="row w3-padding-16">
-              <input className="col-xs-6 col-xs-offset-1" type="text" name="quant" id="quant" value={this.state.data.quant} onChange={this.onChange} />
+            <div className="col-xs-6">
+                <b>Valor a investir:</b>
+              </div>
+              <input className="col-xs-6" type="text" name="quant" id="quant" value={this.state.data.quant} onChange={this.onChange} />
+              {this.state.errors.quant && <this.inlineError text={this.state.errors.quant} />}
             </div>
             <div className="row">
               <form action="">

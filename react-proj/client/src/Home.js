@@ -8,6 +8,14 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        if (localStorage.getItem('user')===null || localStorage.getItem('user')===undefined) {
+            document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.concat(" w3-hide");
+        }
+        else {
+            document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.replace("w3-hide","");
+        }
+
+
         fetch('/ESS/coins')
             .then(res => res.json())
             .then(data => this.setState({ data: data }));

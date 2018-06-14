@@ -20,17 +20,12 @@ class FecharContrato extends Component {
     fetch('/ESS/fechar', {
       method: 'POST',
       body: JSON.stringify({
-        user: localStorage.getItem("user"),
         id: this.state.data.map(contrato => (contrato.id)),
-        price: this.state.data.map(contrato => (contrato.price)),
-        quant: this.state.data.map(contrato => (contrato.quant)),
-        idCoin: this.state.data.map(contrato => (contrato.idCoin)),
-        venda: this.state.data.map(contrato => (contrato.venda))
       }),
       headers: { "Content-Type": "application/json" }
     })
       .then(() => {
-        window.location.replace("/");
+        window.location.replace("/Portfolio");
       })
       .then(res => this.setState({ response: res }));
   }
