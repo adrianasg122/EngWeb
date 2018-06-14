@@ -14,10 +14,10 @@ class Home extends Component {
     }
 
     openContrato(id) {
-        if (localStorage.getItem('user')!==null && localStorage.getItem('user')!==undefined) {
+        if (localStorage.getItem('user') !== null && localStorage.getItem('user') !== undefined) {
             localStorage.setItem("abrirC", id);
             window.location.replace("/AbrirContrato");
-        }else {
+        } else {
             localStorage.removeItem("abrirC");
         }
     }
@@ -48,15 +48,29 @@ class Home extends Component {
     }
 
     render() {
-        window.onload = function() {
+        window.onload = function () {
             this.document.getElementById("Comm").style.display = "block";
         }
         document.getElementById("homeNavBar").className = document.getElementById("homeNavBar").className.concat(" w3-white");
         return (
             <div className="w3-container row">
-                <div id="mySidebar" className="w3-container sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-xs-2">
-                    <a className="w3-bar-item w3-button w3-red tablink " id="bComm" onClick={this.openTab.bind(this, 'Comm')}>Commodities</a>
-                    <a className="w3-bar-item w3-button tablink" id="bAcao" onClick={this.openTab.bind(this, 'Acao')}>Ações</a>
+                <div id="mySidebar" className="w3-container sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-xs-11 col-md-2 ">
+                    <div className="row w3-padding-16 ">
+                        <div className="col-xs-6">
+                            <b>Saldo Disponivel:</b>
+                        </div>
+                        <div className="col-xs-6">
+                            1000€
+                        </div>
+                    </div>
+                    <div className="row w3-padding-16 ">
+                        <div className="col-xs-6">
+                            <b>Saldo Investido:</b>
+                        </div>
+                        <div className="col-xs-6">
+                            1000€
+                        </div>
+                    </div>
                 </div>
                 <div className="w3-container col-xs-8 col-md-9">
                     <div id="Comm" className="tabcontent w3-container">
