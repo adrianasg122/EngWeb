@@ -11,7 +11,7 @@ var array;
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'ESS'
 });
 
@@ -116,9 +116,8 @@ app.post('/ESS/addCont', function (req, res) {
   let priceA = req.body.priceA;
   let quant = req.body.quant;
   /**compra -> 0 | venda -> 1 */
-  let venda = req.body.venda;
-  let dataA =req.body.dataA
-  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,priceA,priceF,venda,concluido,dataA) values (\'' + id + '\',\'' + user + '\',' + quant + ',' + priceA + ',0,' + venda + ',0,' + dataA + ')';
+  let venda = req.body.venda
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,priceA,priceF,venda,concluido,dataA) values (\'' + id + '\',\'' + user + '\',' + quant + ',' + priceA + ',0,' + venda + ',0,NOW())';
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err
@@ -135,10 +134,6 @@ app.post('/ESS/addCont', function (req, res) {
 app.post('/ESS/fechar', function (req, res) {
   console.log(req.body);
   let id = req.body.id;
-  sql = 'UPDATE Contrato SET concluido=1 WHERE id=' + id;
-  console.log(sql)
-  connection.query(sql, function (err, results) {
-    if (err) throw err
     var sql = 'SELECT * FROM Contrato WHERE id=' + id
     console.log(sql)
     connection.query(sql, function (err, results) {
@@ -158,12 +153,16 @@ app.post('/ESS/fechar', function (req, res) {
         sql = 'update user set saldo=saldo+' + amount + ' where username=\'' + user + '\'';
         console.log(sql)
         connection.query(sql, function (err, results) {
+          console.log(currentValue)
+          sql = 'UPDATE Contrato SET concluido=1 ,priceF='+currentValue+' , dataF=NOW() WHERE id=' + id;
+          console.log(sql)
+          connection.query(sql, function (err, results) {
           if (err) throw err
           res.send("Added");
+        })
         });
       })
     })
-  });
 });
 
 app.get('/ESS/hist', function (req, res) {

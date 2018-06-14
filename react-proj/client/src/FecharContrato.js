@@ -58,15 +58,15 @@ class FecharContrato extends Component {
                   {this.state.data.map(contrato => contrato.venda)===1?"Venda":"Compra"}
                 </div>
               </div>
-              <div className="row">
+              <div className="row w3-padding-16">
                 <div className="col-xs-6 col-md-6">
                   <b>Valor:</b>
                 </div>
                 <div className="col-xs-6 col-md-6">
-                  {this.state.data.map(contrato => (<p> {contrato.price} $ </p>))}
+                  {this.state.data.map(contrato => (<p> {contrato.priceA} $ </p>))}
                 </div>
               </div>
-              <div className="row w3-padding-16">
+              <div className="row ">
                 <div className="col-xs-6 col-md-6">
                   <b>Quantidade:</b>
                 </div>

@@ -28,7 +28,7 @@ class Home extends Component {
         let invest = 0;
         var i;
         for (i in portfolio) {
-            var valueTransaction = portfolio[i].quantidade;
+            var valueTransaction = portfolio[i].precoA;
             var unitsTransaction = portfolio[i].quantidade * 1.0 / portfolio[i].precoA;
             var buySell = portfolio[i].tipo;
             var currentValue = this.state.data.filter(coinH => coinH.id === portfolio[i].coin)[0].price;
@@ -36,8 +36,6 @@ class Home extends Component {
             (currentValue - valueTransaction) * unitsTransaction + valueTransaction * unitsTransaction :
             (valueTransaction - currentValue) * unitsTransaction + valueTransaction * unitsTransaction);
         }
-
-
         this.setState({
             portfolioL: portfolio,
             investedValue: invest
