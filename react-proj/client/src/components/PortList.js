@@ -8,7 +8,7 @@ class PortList extends Component {
       <tr>
           <th>Id contrato</th>
           <th>Nome</th>
-          <th>Quantidade</th>
+          <th>Valor a investir</th>
           <th>Preço abertura</th>
           <th>Data abertura</th>
           <th>Tipo</th>
