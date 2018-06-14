@@ -27,6 +27,8 @@ CREATE TABLE IF NOT EXISTS `ess`.`Coin` (
   `price` DOUBLE NOT NULL,
   `percentageChange` INT(11) NOT NULL,
   `lastModDate` DOUBLE NOT NULL,
+  `ask` DOUBLE NOT NULL,
+  `bid` DOUBLE NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -53,10 +55,13 @@ CREATE TABLE IF NOT EXISTS `ess`.`Contrato` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idCoin` VARCHAR(50) NOT NULL,
   `idUser` VARCHAR(20) NOT NULL,
-  `quant` INT(11) NOT NULL,
-  `price` DOUBLE NOT NULL,
+  `quant` FLOAT NOT NULL,
+  `priceA` DOUBLE NOT NULL,
+  `priceF` INT(11) NULL DEFAULT NULL,
   `venda` INT(11) NOT NULL,
   `concluido` INT(11) NOT NULL,
+  `dataA` DOUBLE NULL DEFAULT NULL,
+  `dataF` DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `idCoin_idx` (`idCoin` ASC),
   INDEX `isUser_idx` (`idUser` ASC),
@@ -67,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `ess`.`Contrato` (
     FOREIGN KEY (`idUser`)
     REFERENCES `ess`.`User` (`username`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6;
+AUTO_INCREMENT = 8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

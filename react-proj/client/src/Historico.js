@@ -18,8 +18,11 @@ class Historico extends Component {
         id: data[x].id,
         coin: data[x].idCoin,
         quantidade: data[x].quant,
-        valor: data[x].price,
-        tipo: data[x].venda
+        tipo: data[x].venda,
+        precoA: data[x].priceA,
+        precoF: data[x].priceF,
+        dataA: data[x].dataA,
+        dataF: data[x].dataF,
       };
       portfolio = portfolio.concat(newPort);
     }

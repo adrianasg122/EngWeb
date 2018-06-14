@@ -8,7 +8,7 @@ class HomeList extends Component {
         <thead>
           <tr>
             <th>Ativo</th>
-            <th>Variação (24h)</th>
+            <th>Variação % (1h)</th>
             <th>Venda €</th>
             <th>Compra €</th>
           </tr>

@@ -17,9 +17,9 @@ class Portfolio extends Component {
         id: data[x].id,
         coin: data[x].idCoin,
         quantidade: data[x].quant,
-        valor: data[x].price,
-        askbid: data[x].venda,
-        estado: data[x].concluido,
+        precoA: data[x].priceA,
+        dataA: data[x].dataA,
+        tipo: data[x].venda,
       };
       portfolio = portfolio.concat(newPort);
     }
