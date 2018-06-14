@@ -104,12 +104,12 @@ class Home extends Component {
         document.getElementById("homeNavBar").className = document.getElementById("homeNavBar").className.concat(" w3-white");
         return (
             <div className="w3-container row">
-                <div id="mySidebar" className="w3-container sidebar w3-collapse w3-bar-block w3-light-grey w3-card col-xs-11 col-md-2 ">
+                <div id="mySidebar" className="w3-container sidebar w3-collapse w3-bar-block w3-flat-midnight-blue w3-card col-xs-12 col-md-3 ">
                     <div className="row w3-padding-16 ">
                         <div className="col-xs-6">
                             <b>Saldo Disponivel:</b>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-xs-6 value">
                         { this.state.user.map(user => (<span> { Math.round(user.saldo * 1000) / 1000} $</span>))}
                         </div>
                     </div>
@@ -117,7 +117,7 @@ class Home extends Component {
                         <div className="col-xs-6">
                             <b>Valor Investimentos:</b>
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-xs-6 value">
                         {Math.round(this.state.investedValue*1000) / 1000} $
                         </div>
                     </div>

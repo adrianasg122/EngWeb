@@ -86,11 +86,17 @@ var pStyle2 {
 
 .tableHover:hover{color:#FFF!important;background-color:#555!important}
 
+.value {
+  text-align: right;
+}
+
 .sidebar {
-  background-color:#fff;
   z-index:1;
   overflow:auto;
   margin-top: 40px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
 }
 
 .tabcontent {
