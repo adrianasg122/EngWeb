@@ -49,13 +49,13 @@ class Login extends Component {
                 <div className="w3-container w3-padding-16">
                     <form>
                         <div className="w3-container w3-center w3-padding-32">
-                            <p className="input_desc"> Username </p>
+                            <b className="input_desc"> Username </b>
                             <input className="input" type="text" name="username" id="username" value={data.username} onChange={this.onChangeU} />
                             <br />
                             {errors.username && <this.inlineError text={errors.username} />}
                         </div>
                         <div className="w3-container w3-center ">
-                            <p className="input_desc"> Password </p>
+                            <b className="input_desc"> Password </b>
                             <input className="input" type="password" name="password" id="password" value={data.password} onChange={this.onChangeP} />
                             <br />
                             {errors.password && <this.inlineError text={errors.password} />}
