@@ -4,15 +4,43 @@ import HomeList from './components/HomeList';
 
 class Home extends Component {
     state = {
-        data: []
+        data: [],
+        user: [],
+        portfolioL: []
+    }
+
+    loadData(data) {
+        var portfolio, x;
+        portfolio = [];
+        for (x in data) {
+            const newPort = {
+                id: data[x].id,
+                coin: data[x].idCoin,
+                quantidade: data[x].quant,
+                precoA: data[x].priceA,
+                dataA: data[x].dataA,
+                tipo: data[x].venda,
+            };
+            portfolio = portfolio.concat(newPort);
+        }
+        this.setState({
+            portfolioL: portfolio,
+            portFCounter: portfolio.length
+        });
     }
 
     componentDidMount() {
-        if (localStorage.getItem('user')===null || localStorage.getItem('user')===undefined) {
+        if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
             document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.concat(" w3-hide");
         }
         else {
-            document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.replace("w3-hide","");
+            document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.replace("w3-hide", "");
+            fetch('/ESS/user?username=' + localStorage.getItem("user"))
+                .then(res => res.json())
+                .then(res => this.setState({ user: res }))
+            fetch('/ESS/contratos?username=' + localStorage.getItem("user"))
+                .then(res => res.json())
+                .then(data => this.loadData(data));
         }
 
 
@@ -68,7 +96,7 @@ class Home extends Component {
                             <b>Saldo Disponivel:</b>
                         </div>
                         <div className="col-xs-6">
-                            1000€
+                        {this.state.user.map(user => (<span> {user.saldo} $</span>))}
                         </div>
                     </div>
                     <div className="row w3-padding-16 ">
@@ -76,7 +104,7 @@ class Home extends Component {
                             <b>Saldo Investido:</b>
                         </div>
                         <div className="col-xs-6">
-                            1000€
+                        {this.state.portfolioL.map(port => port.quantidade).reduce((a, b) => a + b, 0)} $
                         </div>
                     </div>
                 </div>

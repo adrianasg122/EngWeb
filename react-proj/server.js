@@ -143,8 +143,8 @@ app.post('/ESS/fechar', function (req, res) {
     connection.query(sql, function (err, results) {
       if (err) throw err
       let user = results[0].idUser
-      let valueTransaction = results[0].price;
-      let unitsTransaction = results[0].quant / results[0].price;
+      let valueTransaction = results[0].priceA;
+      let unitsTransaction = results[0].quant / results[0].priceA;
       let idCoin = results[0].idCoin
       let buySell = results[0].venda;
       var sql = 'SELECT * FROM Coin WHERE id=\'' + idCoin + '\''
@@ -154,7 +154,6 @@ app.post('/ESS/fechar', function (req, res) {
         let amount = ((buySell === 0) ?
           (currentValue - valueTransaction) * unitsTransaction + valueTransaction * unitsTransaction :
           (valueTransaction - currentValue) * unitsTransaction + valueTransaction * unitsTransaction);
-          console.log(amount);
         sql = 'update user set saldo=saldo+' + amount + ' where username=\'' + user + '\'';
         console.log(sql)
         connection.query(sql, function (err, results) {
