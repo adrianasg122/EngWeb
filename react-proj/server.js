@@ -112,12 +112,13 @@ app.get('/ESS/Contrato', function (req, res) {
 app.post('/ESS/addCont', function (req, res) {
   let user = req.body.user;
   let id = req.body.id;
-  let name = req.body.name;
-  let price = req.body.price;
+  let priceA = req.body.priceA;
+  let priceF = req.body.priceB;
   let quant = req.body.quant;
   /**compra -> 0 | venda -> 1 */
   let venda = req.body.venda;
-  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,price,venda,concluido) values (\'' + id + '\',\'' + user + '\',' + quant + ',' + price + ',' + venda + ',0)';
+  let dataA =req.body.dataA
+  sql = 'INSERT INTO Contrato(idCoin,idUser,quant,priceA,priceF,venda,concluido,dataA) values (\'' + id + '\',\'' + user + '\',' + quant + ',' + priceA + ','  + priceF + ',' + venda + ',0,' + dataA + ')';
   console.log(sql)
   connection.query(sql, function (err, results) {
     if (err) throw err

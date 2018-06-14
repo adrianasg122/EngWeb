@@ -42,9 +42,11 @@ class AbrirContrato extends Component {
         body: JSON.stringify({
           user: localStorage.getItem("user"),
           id: this.state.data.id,
-          price: (document.getElementById("comprarRadioButton").checked?this.state.data.price*1.05:this.state.data.price*0.95),
+          priceA: this.state.data.price*1.05,
+          priceB: this.state.data.price*0.95,
           quant: this.state.data.quant,
-          venda: (document.getElementById("comprarRadioButton").checked?0:1)
+          venda: (document.getElementById("comprarRadioButton").checked?0:1),
+          dataA: Date.now()
         }),
         headers: { "Content-Type": "application/json" }
       })
