@@ -6,7 +6,6 @@ class PortList extends Component {
       <table className="port-list w3-table-all">
       <thead>
       <tr>
-          <th>Id contrato</th>
           <th>Nome</th>
           <th>Valor a investir</th>
           <th>Preço abertura</th>
@@ -18,7 +17,6 @@ class PortList extends Component {
         {
           this.props.portFs.map(port => (
             <tr className='tableHover' key={port.id} onClick={() => this.props.onclick(port.id)}>
-            <td>{port.id}</td>
             <td>{port.coin}</td>
             <td>{port.quantidade}</td>
             <td>{port.precoA}</td>

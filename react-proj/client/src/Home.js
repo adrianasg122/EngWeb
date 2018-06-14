@@ -75,8 +75,6 @@ class Home extends Component {
     }
 
 
-    
-
     render() {
         window.onload = function () {
             this.document.getElementById("Comm").style.display = "block";

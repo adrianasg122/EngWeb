@@ -35,7 +35,7 @@ class Registo extends Component {
         })
         .then(res => res.json())
         .then((res) => {
-            if (res.uservalid!=0) {
+            if (res.uservalid!==0) {
                 window.location.replace("/");
             }
             else {
