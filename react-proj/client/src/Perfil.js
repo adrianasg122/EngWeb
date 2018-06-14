@@ -4,37 +4,58 @@ class Perfil extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: [],
       name: '',
       user: [],
-      portfolioL: []
+      portfolioL: [],
+      investedValue: ''
   }}
 
   loadData(data) {
-      var portfolio, x;
-      portfolio = [];
-      for (x in data) {
-          const newPort = {
-              id: data[x].id,
-              coin: data[x].idCoin,
-              quantidade: data[x].quant,
-              precoA: data[x].priceA,
-              dataA: data[x].dataA,
-              tipo: data[x].venda,
-          };
-          portfolio = portfolio.concat(newPort);
-      }
-      this.setState({
-          portfolioL: portfolio,
-          portFCounter: portfolio.length
-      });
-  }
+    var portfolio, x;
+    portfolio = [];
+    for (x in data) {
+        const newPort = {
+            id: data[x].id,
+            coin: data[x].idCoin,
+            quantidade: data[x].quant,
+            precoA: data[x].priceA,
+            dataA: data[x].dataA,
+            tipo: data[x].venda,
+        };
+        portfolio = portfolio.concat(newPort);
+    }
+
+    let invest = 0;
+    var i;
+    for (i in portfolio) {
+        var valueTransaction = portfolio[i].quantidade;
+        var unitsTransaction = portfolio[i].quantidade * 1.0 / portfolio[i].precoA;
+        var buySell = portfolio[i].tipo;
+        var currentValue = this.state.data.filter(coinH => coinH.id === portfolio[i].coin)[0].price;
+        invest = invest + ((buySell === 0) ?
+        (currentValue - valueTransaction) * unitsTransaction + valueTransaction * unitsTransaction :
+        (valueTransaction - currentValue) * unitsTransaction + valueTransaction * unitsTransaction);
+    }
+
+
+    this.setState({
+        portfolioL: portfolio,
+        investedValue: invest
+    });
+}
+
+
   componentDidMount() {
     fetch('/ESS/user?username=' + localStorage.getItem("user"))
       .then(res => res.json())
       .then(res => this.setState({ user: res }))
+      fetch('/ESS/coins')
+                .then(res => res.json())
+                .then(data => this.setState({ data: data }));
       fetch('/ESS/contratos?username=' + localStorage.getItem("user"))
                 .then(res => res.json())
-                .then(data => this.loadData(data));
+                .then(res => this.loadData(res));
   }
 
   render() {
@@ -95,15 +116,15 @@ class Perfil extends Component {
                 <b>Saldo Disponivel:</b>
               </div>
               <div className="col-sm-6 col-md-4">
-                {this.state.user.map(user => (<span> {user.saldo} $</span>))}
+                {this.state.user.map(user => (<span> {Math.round(user.saldo * 1000) / 1000} $</span>))}
               </div>
             </div>
             <div className="perfil row w3-border-bottom">
               <div className="col-sm-6 col-md-8">
-                <b>Saldo Investido:</b>
+                <b>Valor investimentos:</b>
               </div>
               <div className="col-sm-6 col-md-4">
-              {this.state.portfolioL.map(port => port.quantidade).reduce((a, b) => a + b, 0)} $
+              {Math.round(this.state.investedValue*1000) / 1000} $
               </div>
             </div>
             <div className="col-xs-offset-1 col-xs-12 w3-padding-16">

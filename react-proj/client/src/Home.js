@@ -6,7 +6,8 @@ class Home extends Component {
     state = {
         data: [],
         user: [],
-        portfolioL: []
+        portfolioL: [],
+        investedValue: ''
     }
 
     loadData(data) {
@@ -23,30 +24,45 @@ class Home extends Component {
             };
             portfolio = portfolio.concat(newPort);
         }
+
+        let invest = 0;
+        var i;
+        for (i in portfolio) {
+            var valueTransaction = portfolio[i].quantidade;
+            var unitsTransaction = portfolio[i].quantidade * 1.0 / portfolio[i].precoA;
+            var buySell = portfolio[i].tipo;
+            var currentValue = this.state.data.filter(coinH => coinH.id === portfolio[i].coin)[0].price;
+            invest = invest + ((buySell === 0) ?
+            (currentValue - valueTransaction) * unitsTransaction + valueTransaction * unitsTransaction :
+            (valueTransaction - currentValue) * unitsTransaction + valueTransaction * unitsTransaction);
+        }
+
+
         this.setState({
             portfolioL: portfolio,
-            portFCounter: portfolio.length
+            investedValue: invest
         });
     }
 
     componentDidMount() {
         if (localStorage.getItem('user') === null || localStorage.getItem('user') === undefined) {
             document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.concat(" w3-hide");
+            fetch('/ESS/coins')
+            .then(res => res.json())
+            .then(data => this.setState({ data: data }));
         }
         else {
             document.getElementById("mySidebar").className = document.getElementById("mySidebar").className.replace("w3-hide", "");
+            fetch('/ESS/coins')
+            .then(res => res.json())
+            .then(data => this.setState({ data: data }));
             fetch('/ESS/user?username=' + localStorage.getItem("user"))
                 .then(res => res.json())
                 .then(res => this.setState({ user: res }))
             fetch('/ESS/contratos?username=' + localStorage.getItem("user"))
                 .then(res => res.json())
-                .then(data => this.loadData(data));
+                .then(res => this.loadData(res));
         }
-
-
-        fetch('/ESS/coins')
-            .then(res => res.json())
-            .then(data => this.setState({ data: data }));
     }
 
     openContrato(id) {
@@ -59,29 +75,7 @@ class Home extends Component {
     }
 
 
-    openTab(name) {
-        var i, x, tablinks;
-        console.log(this.state.data)
-        x = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace("w3-red", "");
-        }
-        document.getElementById(name.toString()).style.display = "block";
-        switch (name.toString()) {
-            case "Comm":
-                document.getElementById("bComm").className += " w3-red";
-                break;
-            case "Acao":
-                document.getElementById("bAcao").className += " w3-red";
-                break;
-            default:
-                break;
-        }
-    }
+    
 
     render() {
         window.onload = function () {
@@ -96,25 +90,21 @@ class Home extends Component {
                             <b>Saldo Disponivel:</b>
                         </div>
                         <div className="col-xs-6">
-                        {this.state.user.map(user => (<span> {user.saldo} $</span>))}
+                        { this.state.user.map(user => (<span> { Math.round(user.saldo * 1000) / 1000} $</span>))}
                         </div>
                     </div>
                     <div className="row w3-padding-16 ">
                         <div className="col-xs-6">
-                            <b>Saldo Investido:</b>
+                            <b>Valor Investimentos:</b>
                         </div>
                         <div className="col-xs-6">
-                        {this.state.portfolioL.map(port => port.quantidade).reduce((a, b) => a + b, 0)} $
+                        {Math.round(this.state.investedValue*1000) / 1000} $
                         </div>
                     </div>
                 </div>
                 <div className="w3-container col-xs-8 col-md-9">
                     <div id="Comm" className="tabcontent w3-container">
-                        <h2 id="ComodAcao" className="titulo w3-padding-32"> Commodities</h2>
-                        <HomeList homeFs={this.state.data} onClick={(id) => this.openContrato(id)} />
-                    </div>
-                    <div id="Acao" className="tabcontent w3-container">
-                        <h2 id="ComodAcao" className="titulo w3-padding-32"> Ações</h2>
+                        <h2 id="ComodAcao" className="titulo w3-padding-32"> Criptocurrencies </h2>
                         <HomeList homeFs={this.state.data} onClick={(id) => this.openContrato(id)} />
                     </div>
                 </div>
